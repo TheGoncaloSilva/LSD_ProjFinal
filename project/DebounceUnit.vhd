@@ -12,7 +12,7 @@ entity DebounceUnit is
 			  outPolarity		: std_logic := '1');
 	port(refClk			: in  std_logic;
 		  dirtyIn		: in  std_logic;
-		  pulsedOut		: out std_logic);
+		  cleanOut		: out std_logic);
 end DebounceUnit; 
  
 architecture Behavioral of DebounceUnit is
@@ -21,7 +21,7 @@ architecture Behavioral of DebounceUnit is
 	subtype TCounter is natural range 0 to MIN_IN_WIDTH_CYCLES;
 
 	signal s_debounceCnt : TCounter := 0;
-	signal s_dirtyIn, s_previousIn, s_pulsedOut : std_logic;
+	signal s_dirtyIn, s_previousIn, s_cleanOut : std_logic;
 
 begin 
 	in_sync_proc : process(refClk) 
@@ -42,26 +42,25 @@ begin
 			if ((s_dirtyIn = '0') or
 				 (s_debounceCnt > MIN_IN_WIDTH_CYCLES)) then
 				s_debounceCnt <= 0;
-				s_pulsedOut   <= '0';
+				s_cleanOut   <= '0';
 
 			elsif (s_dirtyIn = '1') then
 				if (s_previousIn = '0') then
 					s_debounceCnt <= MIN_IN_WIDTH_CYCLES;
-					s_pulsedOut   <= '0';
+					s_cleanOut   <= '0';
 				else
 					if (s_debounceCnt >= 1) then
 						s_debounceCnt <= s_debounceCnt - 1;
 					end if;
 					if (s_debounceCnt = 1) then
-						s_pulsedOut <= '1';
+						s_cleanOut <= '1';
 					else
-						s_pulsedOut <= '0';
+						s_cleanOut <= '0';
 					end if;
 			   end if;
 			end if;
 		end if;
 	end process;
 
-	pulsedOut <= s_pulsedOut when (outPolarity = '1') else
-					 not s_pulsedOut;
+	cleanOut <= s_cleanOut when (outPolarity = '1') else not s_cleanOut;
 end Behavioral;
