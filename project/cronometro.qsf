@@ -53,6 +53,8 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulati
 set_global_assignment -name VHDL_FILE Bin7SegDecoder.vhd
 set_global_assignment -name VHDL_FILE PulseGeneratorN.vhd
 set_global_assignment -name VHDL_FILE DebounceUnit.vhd
-set_global_assignment -name VHDL_FILE Debouncer.vhd
 set_global_assignment -name VHDL_FILE ChronometerTop.vhd
 set_global_assignment -name VHDL_FILE RegisterN.vhd
+set_global_assignment -name VHDL_FILE DisplayCntrl.vhd
+set_global_assignment -name VHDL_FILE ClkDividerN.vhd
+set_global_assignment -name VHDL_FILE Decoder3_8.vhd
