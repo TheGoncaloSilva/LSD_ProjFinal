@@ -58,3 +58,4 @@ set_global_assignment -name VHDL_FILE ChronometerTop.vhd
 set_global_assignment -name VHDL_FILE RegisterN.vhd
 set_global_assignment -name VHDL_FILE Mux.vhd
 set_global_assignment -name VHDL_FILE PCounter4.vhd
+set_global_assignment -name VHDL_FILE cronometro.vhd

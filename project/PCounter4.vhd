@@ -5,7 +5,8 @@ library ieee;
 use ieee.std_logic.all;
 
 entity PCounter4 is
-   generic(max : natural := 9)
+   generic(max : positive := 9)
+	generic(min := 0)
    port(clk    : in std_logic;
 	     enable : in std_logic;
 	     reset  : in std_logic;
