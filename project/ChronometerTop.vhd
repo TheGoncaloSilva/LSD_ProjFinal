@@ -21,10 +21,16 @@ architecture Behavioral of ChronometerTop is
 	signal s_start_stop : std_logic; -- Debouncer start and stop
 	signal s_reset  : std_logic; -- Debouncer sinal reset global
 	
-	-- Fio Para o TC do counter que irá servir como enable para o counter seguinte
-	signal s_TC : std_logic;
-	
-	-- Fio para o valor final do counter
+	-- Fios Para o TC do counter que irá servir como enable para o counter seguinte
+	signal s_TC0_1 : std_logic;
+	signal s_TC1_2 : std_logic;
+	signal s_TC2_3 : std_logic;
+	signal s_TC3_4 : std_logic;
+	signal s_TC4_5 : std_logic;
+	signal s_TC5_6 : std_logic;
+	signal s_TC_final : std_logic;
+
+	-- Fios para o valor final do counter
 	signal s_Q0 : std_logic_vector(3 downto 0);
 	signal s_Q1 : std_logic_vector(3 downto 0);
 	signal s_Q2 : std_logic_vector(3 downto 0);
@@ -35,8 +41,11 @@ architecture Behavioral of ChronometerTop is
 	-- Fio de ligação do Multiplexer para o bin7SegDecoder
 	signal s_mux_dec: std_logic_vector(3 downto 0);
 	
+	-- Fio de ligação do bin7SegDecoder aos Registers
+	signal s_dec_regN: std_logic_vector(6 downto 0);
+	
 	-- Fio para que sai do Bin7SegDecoder e é usado no RegisterN
-	signal s_dec_regN : std_logic_vector(7 downto 0);
+	signal s_sel_reg : std_logic_vector(7 downto 0);
 	
 	-- Fio proveniente do DisplayCntrl para conectar ao decoder de 3 para 8, de forma a ligar os displays e para ligar ao multiplexador
 	signal s_sel_mux : std_logic_vector(2 downto 0);
@@ -53,13 +62,13 @@ begin
 
 	deb1 : entity work.DebounceUnit(Behavioral)
 		generic map (inPolarity => '0') -- inverter o valor da key
-		port map(refClk		=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
+		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
 					dirtyIn	=> KEY(3), -- Key para start and stop
 					cleanOut	=> s_start_stop);
 	
 	deb2 : entity work.DebounceUnit(Behavioral)
 		generic map (inPolarity => '1')
-		port map(refClk		=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
+		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
 					dirtyIn	=> SW(0), -- Switch do reset
 					cleanOut	=> s_reset);
 	
@@ -68,8 +77,8 @@ begin
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset 	=> s_reset,
-					enable	=> '1',
-					TC			=> s_TC,
+					enable	=> s_start_stop, -- Star and stop
+					TC			=> s_TC0_1,
 					Q			=> s_Q0);
 	
 	counter2 : entity work.PCounter4(Behav)
@@ -77,8 +86,8 @@ begin
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC,
-					TC			=> s_TC,
+					enable	=> s_TC0_1,
+					TC			=> s_TC1_2,
 					Q			=> s_Q1);
 					
 	counter3 : entity work.PCounter4(Behav)
@@ -86,8 +95,8 @@ begin
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC,
-					TC			=> s_TC,
+					enable	=> s_TC1_2,
+					TC			=> s_TC2_3,
 					Q			=> s_Q2);
 					
 	counter4 : entity work.PCounter4(Behav)
@@ -95,8 +104,8 @@ begin
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC,
-					TC			=> s_TC,
+					enable	=> s_TC2_3,
+					TC			=> s_TC3_4,
 					Q			=> s_Q3);
 					
 	counter5 : entity work.PCounter4(Behav)
@@ -104,8 +113,8 @@ begin
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC,
-					TC			=> s_TC,
+					enable	=> s_TC3_4,
+					TC			=> s_TC4_5,
 					Q			=> s_Q4);
 					
 	counter6 : entity work.PCounter4(Behav)
@@ -113,8 +122,8 @@ begin
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC,
-					TC			=> s_TC,
+					enable	=> s_TC4_5,
+					TC			=> s_TC_final,
 					Q			=> s_Q5);
 					
 	
@@ -127,7 +136,7 @@ begin
 					dataIn5	=> s_q5,
 					dataIn6	=> x"E", -- alterar para modo programação com o texto
 					dataIn7	=> x"F", -- alterar para modo programação com o texto
-					sel	=> s_sel_mux(3 downto 1),
+					sel	=> s_sel_mux,
 					dataOut	=> s_mux_dec);
 	
 	segDecoder : entity work.Bin7SegDecoder(Behavioral)
@@ -135,80 +144,66 @@ begin
 					decOut_n => s_dec_regN);
 	
 	DisplayCntrl : entity work.DisplayCntrl(Behavioral)
-		port map(clk	=> CLOCK_50,
-					res	=> s_reset,
-					sel	=> s_sel_mux,
-					en		=> '1',
-					start	=> '1',
-					busy	=> '1');
-					
-	Dec3_8 : entity work.Decoder3_8(Behavioral)
-		port map(	enable 	=> s_sel_mux(0),
-				inputs 	=> s_sel_mux(3 downto 1),
-				outputs 	=> s_display_sel);
-					
-					
-	reg1: entity work.RegisterN(Behavioral)
-		--generic (N : positive := 8);
-		generic map (size => 8)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(0),
+					res		=> s_reset,
+					sel		=> s_sel_mux,
+					regSel	=> s_sel_reg,
+					en			=> '1',
+					start		=> '1',
+					busy		=> open);					
+					
+	reg1: entity work.Reg(Behavioral)
+		port map(clk		=> CLOCK_50,
+					enable	=> s_sel_reg(0),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex0);
 					
-	reg2: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg2: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(1),
+					enable	=> s_sel_reg(1),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex1);
 					
-	reg3: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg3: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(2),
+					enable	=> s_sel_reg(2),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex2);
 					
-	reg4: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg4: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(3),
+					enable	=> s_sel_reg(3),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex3);
 					
-	reg5: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg5: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(4),
+					enable	=> s_sel_reg(4),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex4);
 					
-	reg6: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg6: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(5),
+					enable	=> s_sel_reg(5),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex5);
 					
-	reg7: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg7: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(6),
+					enable	=> s_sel_reg(6),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex6);
 					
-	reg8: entity work.RegisterN(Behavioral)
-		generic map (size => 8)
+	reg8: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
-					enable	=> s_display_sel(7),
+					enable	=> s_sel_reg(7),
 					reset		=> s_reset,
 					dataIn	=> s_dec_regN,
 					dataOut	=> Hex7);
