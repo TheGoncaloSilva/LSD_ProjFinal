@@ -1,4 +1,5 @@
 |ChronometerTop
+CLOCK_50 => clkdividern:clkDiv.clkIn
 CLOCK_50 => debounceunit:deb1.refClk
 CLOCK_50 => debounceunit:deb2.refClk
 CLOCK_50 => pcounter4:counter1.clk
@@ -16,7 +17,6 @@ CLOCK_50 => reg:reg5.clk
 CLOCK_50 => reg:reg6.clk
 CLOCK_50 => reg:reg7.clk
 CLOCK_50 => reg:reg8.clk
-CLOCK_50 => LEDR[0].DATAIN
 SW[0] => debounceunit:deb2.dirtyIn
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -95,7 +95,7 @@ HEX7[3] << reg:reg8.dataOut[3]
 HEX7[4] << reg:reg8.dataOut[4]
 HEX7[5] << reg:reg8.dataOut[5]
 HEX7[6] << reg:reg8.dataOut[6]
-LEDR[0] << CLOCK_50.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] << clkdividern:clkDiv.clkOut
 LEDR[1] << <GND>
 LEDR[2] << <GND>
 LEDR[3] << <GND>
@@ -113,6 +113,37 @@ LEDR[14] << <GND>
 LEDR[15] << <GND>
 LEDR[16] << <GND>
 LEDR[17] << <GND>
+
+
+|ChronometerTop|ClkDividerN:clkDiv
+clkIn => clkOut~reg0.CLK
+clkIn => s_divCounter[0].CLK
+clkIn => s_divCounter[1].CLK
+clkIn => s_divCounter[2].CLK
+clkIn => s_divCounter[3].CLK
+clkIn => s_divCounter[4].CLK
+clkIn => s_divCounter[5].CLK
+clkIn => s_divCounter[6].CLK
+clkIn => s_divCounter[7].CLK
+clkIn => s_divCounter[8].CLK
+clkIn => s_divCounter[9].CLK
+clkIn => s_divCounter[10].CLK
+clkIn => s_divCounter[11].CLK
+clkIn => s_divCounter[12].CLK
+clkIn => s_divCounter[13].CLK
+clkIn => s_divCounter[14].CLK
+clkIn => s_divCounter[15].CLK
+clkIn => s_divCounter[16].CLK
+clkIn => s_divCounter[17].CLK
+clkIn => s_divCounter[18].CLK
+clkIn => s_divCounter[19].CLK
+clkIn => s_divCounter[20].CLK
+clkIn => s_divCounter[21].CLK
+clkIn => s_divCounter[22].CLK
+clkIn => s_divCounter[23].CLK
+clkIn => s_divCounter[24].CLK
+clkIn => s_divCounter[25].CLK
+clkOut <= clkOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ChronometerTop|DebounceUnit:deb1
@@ -192,7 +223,7 @@ reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
-reset => TC~reg0.ENA
+reset => TC.OUTPUTSELECT
 TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[0] <= s_count[0].DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= s_count[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -215,7 +246,7 @@ reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
-reset => TC~reg0.ENA
+reset => TC.OUTPUTSELECT
 TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[0] <= s_count[0].DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= s_count[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -238,7 +269,7 @@ reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
-reset => TC~reg0.ENA
+reset => TC.OUTPUTSELECT
 TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[0] <= s_count[0].DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= s_count[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -261,7 +292,7 @@ reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
-reset => TC~reg0.ENA
+reset => TC.OUTPUTSELECT
 TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[0] <= s_count[0].DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= s_count[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -284,7 +315,7 @@ reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
-reset => TC~reg0.ENA
+reset => TC.OUTPUTSELECT
 TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[0] <= s_count[0].DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= s_count[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -307,7 +338,7 @@ reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
 reset => s_count.OUTPUTSELECT
-reset => TC~reg0.ENA
+reset => TC.OUTPUTSELECT
 TC <= TC~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[0] <= s_count[0].DB_MAX_OUTPUT_PORT_TYPE
 Q[1] <= s_count[1].DB_MAX_OUTPUT_PORT_TYPE

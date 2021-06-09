@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed Jun 09 00:23:02 2021
+Analysis & Synthesis Status : Successful - Wed Jun 09 19:49:11 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : cronometro
 Top-level Entity Name : ChronometerTop
 Family : Cyclone IV E
-Total logic elements : 193
-    Total combinational functions : 183
-    Dedicated logic registers : 77
-Total registers : 77
+Total logic elements : 229
+    Total combinational functions : 219
+    Dedicated logic registers : 105
+Total registers : 105
 Total pins : 97
 Total virtual pins : 0
 Total memory bits : 0

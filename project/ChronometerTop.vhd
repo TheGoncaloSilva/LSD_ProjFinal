@@ -1,4 +1,4 @@
--- Projeto número 9 - Cronometro Digital
+'-- Projeto número 9 - Cronometro Digital
 -- Gonçalo Silva e Samuel Teixeira
 
 library IEEE;
@@ -14,8 +14,8 @@ end ChronometerTop;
 
 architecture Behavioral of ChronometerTop is
 	
-	-- Fio para o sinal do clock
-	signal s_clock : std_logic;
+	-- Fio para o sinal do clock com os segundos
+	signal s_seconds : std_logic;
 	
 	-- Fio do Debouncer
 	signal s_start_stop : std_logic; -- Debouncer start and stop
@@ -55,8 +55,13 @@ architecture Behavioral of ChronometerTop is
 	
 
 begin
+
+	clkDiv : entity work.ClkDividerN(Behavioral)
+		generic map(divFactor => 50000000) -- Piscar a 1hz
+		port map(clkIn		=> CLOCK_50,
+					clkOut	=> s_seconds);
 	
-	LEDR(0) <= CLOCK_50; --> PASSAGEM DOS SEGUNDOS
+	LEDR(0) <= s_seconds; --> PASSAGEM DOS SEGUNDOS
 	
 	-- usar o divisor de frequencia apenas para o controlar o display a piscar
 

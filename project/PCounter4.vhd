@@ -1,8 +1,6 @@
 -- Projeto número 9 - Cronometro Digital
 -- Gonçalo Silva e Samuel Teixeira
---Counter usado para contar centésimos de segundo, décimos de segundo, unidades de minuto e horas
--- Projeto número 9 - Cronometro Digital
--- Gonçalo Silva e Samuel Teixeira
+-- Counter usado para contar centésimos de segundo, décimos de segundo, unidades de minuto e horas
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -27,6 +25,7 @@ begin
 	   if(rising_edge(clk)) then
 		   if(reset = '1') then
 			   s_count <= "0000";
+				TC <= '0';
 			else
 			   if(enable = '1') then
 				   if(to_integer(s_count) = max) then
@@ -34,6 +33,7 @@ begin
 						TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
 					else
 					   s_count <= s_count + 1;
+						TC <= '0';
 					end if;
 				end if;
 			end if;

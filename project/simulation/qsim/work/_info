@@ -1,0 +1,98 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/simulation/qsim
+vChronometerTop
+Z1 !s110 1623264641
+!i10b 1
+!s100 LQb@ZVSP6JPR@5`GNJWHc0
+IBA?]oMmelQ]67ohiNQ2<d0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1623264640
+Z3 8cronometro.vo
+Z4 Fcronometro.vo
+Z5 L0 31
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1623264641.000000
+Z8 !s107 cronometro.vo|
+Z9 !s90 -work|work|cronometro.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+n@chronometer@top
+vChronometerTop_vlg_vec_tst
+R1
+!i10b 1
+!s100 >W<k0@P7hBLh@@<VeA2go3
+I;K_6S?^>_@Iim?S?[>b?[3
+R2
+R0
+w1623264639
+8ChronometerTop.vwf.vt
+FChronometerTop.vwf.vt
+Z12 L0 29
+R6
+r1
+!s85 0
+31
+R7
+!s107 ChronometerTop.vwf.vt|
+!s90 -work|work|ChronometerTop.vwf.vt|
+!i113 1
+R10
+R11
+n@chronometer@top_vlg_vec_tst
+vPCounter4
+Z13 !s110 1623264520
+!i10b 1
+!s100 VCbaDB7M7<@SSonB6SCKM3
+I@1NSS?LzR3^SU8LBk]i>h2
+R2
+R0
+w1623264519
+R3
+R4
+R5
+R6
+r1
+!s85 0
+31
+Z14 !s108 1623264520.000000
+R8
+R9
+!i113 1
+R10
+R11
+n@p@counter4
+vPCounter4_vlg_vec_tst
+R13
+!i10b 1
+!s100 DT^o94@z[U@z7FRRS=a5E1
+IEWcOCZRQ[YdEnTR[CEZ[X0
+R2
+R0
+w1623264518
+8PCounter4.vwf.vt
+FPCounter4.vwf.vt
+R12
+R6
+r1
+!s85 0
+31
+R14
+!s107 PCounter4.vwf.vt|
+!s90 -work|work|PCounter4.vwf.vt|
+!i113 1
+R10
+R11
+n@p@counter4_vlg_vec_tst
