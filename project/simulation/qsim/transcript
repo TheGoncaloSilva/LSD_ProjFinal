@@ -1,34 +1,44 @@
 # do cronometro.do
 # ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:50:41 on Jun 09,2021
-# vlog -work work cronometro.vo 
-# -- Compiling module ChronometerTop
-# 
-# Top level modules:
-# 	ChronometerTop
-# End time: 19:50:41 on Jun 09,2021, Elapsed time: 0:00:00
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:18:33 on Jun 12,2021
+# vcom -work work cronometro.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity Bin7SegDecoder
+# -- Compiling architecture structure of Bin7SegDecoder
+# End time: 17:18:33 on Jun 12,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:50:41 on Jun 09,2021
-# vlog -work work ChronometerTop.vwf.vt 
-# -- Compiling module ChronometerTop_vlg_vec_tst
-# 
-# Top level modules:
-# 	ChronometerTop_vlg_vec_tst
-# End time: 19:50:41 on Jun 09,2021, Elapsed time: 0:00:00
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:18:33 on Jun 12,2021
+# vcom -work work Bin7SegDecoder.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Bin7SegDecoder_vhd_vec_tst
+# -- Compiling architecture Bin7SegDecoder_arch of Bin7SegDecoder_vhd_vec_tst
+# End time: 17:18:33 on Jun 12,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.ChronometerTop_vlg_vec_tst 
-# Start time: 19:50:41 on Jun 09,2021
-# Loading work.ChronometerTop_vlg_vec_tst
-# Loading work.ChronometerTop
-# Loading cycloneive_ver.cycloneive_io_obuf
-# Loading cycloneive_ver.cycloneive_io_ibuf
-# Loading altera_ver.dffeas
-# Loading cycloneive_ver.cycloneive_lcell_comb
-# Loading altera_ver.PRIM_GDFF_LOW
-# after#25
-# ** Note: $finish    : ChronometerTop.vwf.vt(64)
-#    Time: 1 us  Iteration: 0  Instance: /ChronometerTop_vlg_vec_tst
-# End time: 19:50:42 on Jun 09,2021, Elapsed time: 0:00:01
+# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Bin7SegDecoder_vhd_vec_tst 
+# Start time: 17:18:33 on Jun 12,2021
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.bin7segdecoder_vhd_vec_tst(bin7segdecoder_arch)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneive.cycloneive_atom_pack(body)
+# Loading cycloneive.cycloneive_components
+# Loading work.bin7segdecoder(structure)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneive.cycloneive_io_obuf(arch)
+# Loading cycloneive.cycloneive_io_ibuf(arch)
+# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
+# after#31
+# End time: 17:18:33 on Jun 12,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

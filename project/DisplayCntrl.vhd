@@ -39,7 +39,7 @@ begin
 				if (start = '1') then
 					s_nextState <= E1;
 				else
-					s_nextState <= E1;
+					s_nextState <= INIT;
 				end if;
 				
 			when E1 =>

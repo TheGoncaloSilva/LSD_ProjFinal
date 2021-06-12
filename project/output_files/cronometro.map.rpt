@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cronometro
-Wed Jun 09 19:49:11 2021
+Sat Jun 12 17:12:05 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,26 +13,11 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: ClkDividerN:clkDiv
- 14. Parameter Settings for User Entity Instance: DebounceUnit:deb1
- 15. Parameter Settings for User Entity Instance: DebounceUnit:deb2
- 16. Parameter Settings for User Entity Instance: PCounter4:counter1
- 17. Parameter Settings for User Entity Instance: PCounter4:counter2
- 18. Parameter Settings for User Entity Instance: PCounter4:counter3
- 19. Parameter Settings for User Entity Instance: PCounter4:counter4
- 20. Parameter Settings for User Entity Instance: PCounter4:counter5
- 21. Parameter Settings for User Entity Instance: PCounter4:counter6
- 22. Port Connectivity Checks: "DisplayCntrl:DisplayCntrl"
- 23. Port Connectivity Checks: "Mux:Mux"
- 24. Port Connectivity Checks: "PCounter4:counter6"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -58,16 +43,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 09 19:49:11 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 12 17:12:05 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
-; Top-level Entity Name              ; ChronometerTop                              ;
+; Top-level Entity Name              ; Bin7SegDecoder                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 229                                         ;
-;     Total combinational functions  ; 219                                         ;
-;     Dedicated logic registers      ; 105                                         ;
-; Total registers                    ; 105                                         ;
-; Total pins                         ; 97                                          ;
+; Total logic elements               ; 7                                           ;
+;     Total combinational functions  ; 7                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 11                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -81,7 +66,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; ChronometerTop     ; cronometro         ;
+; Top-level entity name                                                      ; Bin7SegDecoder     ; cronometro         ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -166,172 +151,66 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                   ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                            ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
-; PCounter4.vhd                    ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PCounter4.vhd      ;         ;
-; Mux.vhd                          ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd            ;         ;
-; Bin7SegDecoder.vhd               ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Bin7SegDecoder.vhd ;         ;
-; DebounceUnit.vhd                 ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DebounceUnit.vhd   ;         ;
-; ChronometerTop.vhd               ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd ;         ;
-; DisplayCntrl.vhd                 ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DisplayCntrl.vhd   ;         ;
-; ClkDividerN.vhd                  ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd    ;         ;
-; Reg.vhd                          ; yes             ; User VHDL File  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd            ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+---------+
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File  ; C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 229            ;
-;                                             ;                ;
-; Total combinational functions               ; 219            ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 79             ;
-;     -- 3 input functions                    ; 47             ;
-;     -- <=2 input functions                  ; 93             ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 150            ;
-;     -- arithmetic mode                      ; 69             ;
-;                                             ;                ;
-; Total registers                             ; 105            ;
-;     -- Dedicated logic registers            ; 105            ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 97             ;
-;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 105            ;
-; Total fan-out                               ; 1045           ;
-; Average fan-out                             ; 2.02           ;
-+---------------------------------------------+----------------+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 7                 ;
+;                                             ;                   ;
+; Total combinational functions               ; 7                 ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 7                 ;
+;     -- 3 input functions                    ; 0                 ;
+;     -- <=2 input functions                  ; 0                 ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 7                 ;
+;     -- arithmetic mode                      ; 0                 ;
+;                                             ;                   ;
+; Total registers                             ; 0                 ;
+;     -- Dedicated logic registers            ; 0                 ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 11                ;
+;                                             ;                   ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; binInput[3]~input ;
+; Maximum fan-out                             ; 7                 ;
+; Total fan-out                               ; 46                ;
+; Average fan-out                             ; 1.59              ;
++---------------------------------------------+-------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                   ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+----------------+--------------+
-; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                       ; Entity Name    ; Library Name ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+----------------+--------------+
-; |ChronometerTop                ; 219 (0)             ; 105 (0)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                           ; ChronometerTop ; work         ;
-;    |Bin7SegDecoder:segDecoder| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Bin7SegDecoder:segDecoder ; Bin7SegDecoder ; work         ;
-;    |ClkDividerN:clkDiv|        ; 40 (40)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|ClkDividerN:clkDiv        ; ClkDividerN    ; work         ;
-;    |DebounceUnit:deb1|         ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb1         ; DebounceUnit   ; work         ;
-;    |DebounceUnit:deb2|         ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb2         ; DebounceUnit   ; work         ;
-;    |DisplayCntrl:DisplayCntrl| ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DisplayCntrl:DisplayCntrl ; DisplayCntrl   ; work         ;
-;    |Mux:Mux|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Mux:Mux                   ; Mux            ; work         ;
-;    |PCounter4:counter1|        ; 9 (9)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter1        ; PCounter4      ; work         ;
-;    |PCounter4:counter2|        ; 8 (8)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter2        ; PCounter4      ; work         ;
-;    |Reg:reg1|                  ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg1                  ; Reg            ; work         ;
-;    |Reg:reg2|                  ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg2                  ; Reg            ; work         ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+----------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name    ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; |Bin7SegDecoder            ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |Bin7SegDecoder     ; Bin7SegDecoder ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState                                                                                                                                  ;
-+---------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+---------------------+
-; Name                ; s_currentState.E8 ; s_currentState.E7 ; s_currentState.E6 ; s_currentState.E5 ; s_currentState.E4 ; s_currentState.E3 ; s_currentState.E2 ; s_currentState.E1 ; s_currentState.INIT ;
-+---------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+---------------------+
-; s_currentState.INIT ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                   ;
-; s_currentState.E1   ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 1                   ;
-; s_currentState.E2   ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 1                   ;
-; s_currentState.E3   ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 1                   ;
-; s_currentState.E4   ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 1                   ;
-; s_currentState.E5   ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                   ;
-; s_currentState.E6   ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                   ;
-; s_currentState.E7   ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                   ;
-; s_currentState.E8   ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                   ;
-+---------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+---------------------+
-
-
-+-------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                        ;
-+---------------------------------------------+---------------------------------------------+
-; Register name                               ; Reason for Removal                          ;
-+---------------------------------------------+---------------------------------------------+
-; DisplayCntrl:DisplayCntrl|s_currentState.E3 ; Stuck at GND due to stuck port data_in      ;
-; Reg:reg3|dataOut[0..6]                      ; Stuck at GND due to stuck port clock_enable ;
-; DisplayCntrl:DisplayCntrl|s_currentState.E4 ; Stuck at GND due to stuck port data_in      ;
-; Reg:reg4|dataOut[0..6]                      ; Stuck at GND due to stuck port clock_enable ;
-; DisplayCntrl:DisplayCntrl|s_currentState.E5 ; Stuck at GND due to stuck port data_in      ;
-; Reg:reg5|dataOut[0..6]                      ; Stuck at GND due to stuck port clock_enable ;
-; DisplayCntrl:DisplayCntrl|s_currentState.E6 ; Stuck at GND due to stuck port data_in      ;
-; Reg:reg6|dataOut[0..6]                      ; Stuck at GND due to stuck port clock_enable ;
-; DisplayCntrl:DisplayCntrl|s_currentState.E7 ; Stuck at GND due to stuck port data_in      ;
-; Reg:reg7|dataOut[0..6]                      ; Stuck at GND due to stuck port clock_enable ;
-; DisplayCntrl:DisplayCntrl|s_currentState.E8 ; Stuck at GND due to stuck port data_in      ;
-; Reg:reg8|dataOut[0..6]                      ; Stuck at GND due to stuck port clock_enable ;
-; PCounter4:counter3|s_count[0]               ; Lost fanout                                 ;
-; PCounter4:counter4|s_count[0]               ; Lost fanout                                 ;
-; PCounter4:counter5|s_count[0]               ; Lost fanout                                 ;
-; PCounter4:counter6|s_count[0]               ; Lost fanout                                 ;
-; PCounter4:counter3|s_count[1]               ; Lost fanout                                 ;
-; PCounter4:counter4|s_count[1]               ; Lost fanout                                 ;
-; PCounter4:counter5|s_count[1]               ; Lost fanout                                 ;
-; PCounter4:counter6|s_count[1]               ; Lost fanout                                 ;
-; PCounter4:counter3|s_count[3]               ; Lost fanout                                 ;
-; PCounter4:counter4|s_count[3]               ; Lost fanout                                 ;
-; PCounter4:counter5|s_count[3]               ; Lost fanout                                 ;
-; PCounter4:counter6|s_count[3]               ; Lost fanout                                 ;
-; PCounter4:counter3|s_count[2]               ; Lost fanout                                 ;
-; PCounter4:counter4|s_count[2]               ; Lost fanout                                 ;
-; PCounter4:counter5|s_count[2]               ; Lost fanout                                 ;
-; PCounter4:counter6|s_count[2]               ; Lost fanout                                 ;
-; PCounter4:counter2|TC                       ; Lost fanout                                 ;
-; PCounter4:counter3|TC                       ; Lost fanout                                 ;
-; PCounter4:counter4|TC                       ; Lost fanout                                 ;
-; PCounter4:counter5|TC                       ; Lost fanout                                 ;
-; Total Number of Removed Registers = 68      ;                                             ;
-+---------------------------------------------+---------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                   ;
-+---------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                               ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+---------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; DisplayCntrl:DisplayCntrl|s_currentState.E3 ; Stuck at GND              ; Reg:reg3|dataOut[0], Reg:reg3|dataOut[1], Reg:reg3|dataOut[2], Reg:reg3|dataOut[3], ;
-;                                             ; due to stuck port data_in ; Reg:reg3|dataOut[4], Reg:reg3|dataOut[5], Reg:reg3|dataOut[6], Reg:reg4|dataOut[0], ;
-;                                             ;                           ; Reg:reg4|dataOut[1], Reg:reg4|dataOut[2], Reg:reg4|dataOut[3], Reg:reg4|dataOut[4], ;
-;                                             ;                           ; Reg:reg4|dataOut[5], Reg:reg4|dataOut[6], Reg:reg5|dataOut[0], Reg:reg5|dataOut[1], ;
-;                                             ;                           ; Reg:reg5|dataOut[2], Reg:reg5|dataOut[3], Reg:reg5|dataOut[4], Reg:reg5|dataOut[5], ;
-;                                             ;                           ; Reg:reg5|dataOut[6], Reg:reg6|dataOut[0], Reg:reg6|dataOut[1], Reg:reg6|dataOut[2], ;
-;                                             ;                           ; Reg:reg6|dataOut[3], Reg:reg6|dataOut[4], Reg:reg6|dataOut[5], Reg:reg6|dataOut[6], ;
-;                                             ;                           ; Reg:reg7|dataOut[0], Reg:reg7|dataOut[1], Reg:reg7|dataOut[2], Reg:reg7|dataOut[3], ;
-;                                             ;                           ; Reg:reg7|dataOut[4], Reg:reg7|dataOut[5], Reg:reg7|dataOut[6], Reg:reg8|dataOut[0], ;
-;                                             ;                           ; Reg:reg8|dataOut[1], Reg:reg8|dataOut[2], Reg:reg8|dataOut[3], Reg:reg8|dataOut[4], ;
-;                                             ;                           ; Reg:reg8|dataOut[5], Reg:reg8|dataOut[6], PCounter4:counter3|s_count[0],            ;
-;                                             ;                           ; PCounter4:counter4|s_count[0], PCounter4:counter3|s_count[1],                       ;
-;                                             ;                           ; PCounter4:counter4|s_count[1], PCounter4:counter5|s_count[1],                       ;
-;                                             ;                           ; PCounter4:counter6|s_count[1], PCounter4:counter3|s_count[3],                       ;
-;                                             ;                           ; PCounter4:counter4|s_count[3], PCounter4:counter5|s_count[3],                       ;
-;                                             ;                           ; PCounter4:counter6|s_count[3], PCounter4:counter3|s_count[2],                       ;
-;                                             ;                           ; PCounter4:counter4|s_count[2], PCounter4:counter5|s_count[2],                       ;
-;                                             ;                           ; PCounter4:counter6|s_count[2], PCounter4:counter2|TC, PCounter4:counter3|TC         ;
-; DisplayCntrl:DisplayCntrl|s_currentState.E4 ; Stuck at GND              ; DisplayCntrl:DisplayCntrl|s_currentState.E5, PCounter4:counter5|s_count[0],         ;
-;                                             ; due to stuck port data_in ; PCounter4:counter4|TC                                                               ;
-; PCounter4:counter6|s_count[0]               ; Lost Fanouts              ; PCounter4:counter5|TC                                                               ;
-+---------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -339,165 +218,23 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 105   ;
-; Number of registers using Synchronous Clear  ; 27    ;
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 58    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter1|s_count[2]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter2|s_count[2]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter3|s_count[2]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter4|s_count[3]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter5|s_count[1]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter6|s_count[1]       ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb2|s_debounceCnt[17] ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb1|s_debounceCnt[15] ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |ChronometerTop|Mux:Mux|dataOut[1]                  ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |ChronometerTop|Reg:reg1|dataOut                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ClkDividerN:clkDiv ;
-+----------------+----------+-------------------------------------+
-; Parameter Name ; Value    ; Type                                ;
-+----------------+----------+-------------------------------------+
-; divfactor      ; 50000000 ; Signed Integer                      ;
-+----------------+----------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnit:deb1 ;
-+----------------+-------+---------------------------------------+
-; Parameter Name ; Value ; Type                                  ;
-+----------------+-------+---------------------------------------+
-; khzclkfreq     ; 50000 ; Signed Integer                        ;
-; msecmininwidth ; 100   ; Signed Integer                        ;
-; inpolarity     ; '0'   ; Enumerated                            ;
-; outpolarity    ; '1'   ; Enumerated                            ;
-+----------------+-------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnit:deb2 ;
-+----------------+-------+---------------------------------------+
-; Parameter Name ; Value ; Type                                  ;
-+----------------+-------+---------------------------------------+
-; khzclkfreq     ; 50000 ; Signed Integer                        ;
-; msecmininwidth ; 100   ; Signed Integer                        ;
-; inpolarity     ; '1'   ; Enumerated                            ;
-; outpolarity    ; '1'   ; Enumerated                            ;
-+----------------+-------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PCounter4:counter1 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; max            ; 9     ; Signed Integer                         ;
-; min            ; 0     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PCounter4:counter2 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; max            ; 6     ; Signed Integer                         ;
-; min            ; 0     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PCounter4:counter3 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; max            ; 6     ; Signed Integer                         ;
-; min            ; 0     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PCounter4:counter4 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; max            ; 6     ; Signed Integer                         ;
-; min            ; 0     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PCounter4:counter5 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; max            ; 6     ; Signed Integer                         ;
-; min            ; 0     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PCounter4:counter6 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; max            ; 6     ; Signed Integer                         ;
-; min            ; 0     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "DisplayCntrl:DisplayCntrl"                                                           ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; en    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; start ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; busy  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------+
-; Port Connectivity Checks: "Mux:Mux"             ;
-+---------------+-------+----------+--------------+
-; Port          ; Type  ; Severity ; Details      ;
-+---------------+-------+----------+--------------+
-; datain6[3..1] ; Input ; Info     ; Stuck at VCC ;
-; datain6[0]    ; Input ; Info     ; Stuck at GND ;
-; datain7       ; Input ; Info     ; Stuck at VCC ;
-+---------------+-------+----------+--------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PCounter4:counter6"                                                                 ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; tc   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |Bin7SegDecoder|decOut_n   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-----------------------------------------------------+
@@ -505,23 +242,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 97                          ;
-; cycloneiii_ff         ; 105                         ;
-;     ENA               ; 58                          ;
-;     SCLR              ; 27                          ;
-;     plain             ; 20                          ;
-; cycloneiii_lcell_comb ; 220                         ;
-;     arith             ; 69                          ;
-;         2 data inputs ; 69                          ;
-;     normal            ; 151                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 19                          ;
-;         3 data inputs ; 47                          ;
-;         4 data inputs ; 79                          ;
+; boundary_port         ; 11                          ;
+; cycloneiii_lcell_comb ; 7                           ;
+;     normal            ; 7                           ;
+;         4 data inputs ; 7                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 4.06                        ;
+; Max LUT depth         ; 1.00                        ;
+; Average LUT depth     ; 1.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -540,146 +267,53 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Jun 09 19:48:59 2021
+    Info: Processing started: Sat Jun 12 17:11:55 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cronometro -c cronometro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file pcounter4.vhd
-    Info (12022): Found design unit 1: PCounter4-Behav File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PCounter4.vhd Line: 20
-    Info (12023): Found entity 1: PCounter4 File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PCounter4.vhd Line: 9
-Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd Line: 7
+    Info (12022): Found design unit 1: PCounter4-Behav File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/PCounter4.vhd Line: 20
+    Info (12023): Found entity 1: PCounter4 File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/PCounter4.vhd Line: 9
+Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Mux.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
-    Info (12022): Found design unit 1: Mux-Behav File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd Line: 13
-    Info (12023): Found entity 1: Mux File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd Line: 7
+    Info (12022): Found design unit 1: Mux-Behav File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Mux.vhd Line: 13
+    Info (12023): Found entity 1: Mux File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Mux.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
-    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 12
-    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 7
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 12
+    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file pulsegeneratorn.vhd
-    Info (12022): Found design unit 1: PulseGeneratorN-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 14
-    Info (12023): Found entity 1: PulseGeneratorN File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 5
+    Info (12022): Found design unit 1: PulseGeneratorN-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 14
+    Info (12023): Found entity 1: PulseGeneratorN File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
-    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DebounceUnit.vhd Line: 18
-    Info (12023): Found entity 1: DebounceUnit File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DebounceUnit.vhd Line: 8
+    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/DebounceUnit.vhd Line: 18
+    Info (12023): Found entity 1: DebounceUnit File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/DebounceUnit.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file chronometertop.vhd
-    Info (12022): Found design unit 1: ChronometerTop-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 15
-    Info (12023): Found entity 1: ChronometerTop File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 7
+    Info (12022): Found design unit 1: ChronometerTop-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ChronometerTop.vhd Line: 15
+    Info (12023): Found entity 1: ChronometerTop File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ChronometerTop.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file displaycntrl.vhd
-    Info (12022): Found design unit 1: DisplayCntrl-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 14
-    Info (12023): Found entity 1: DisplayCntrl File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 4
+    Info (12022): Found design unit 1: DisplayCntrl-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 14
+    Info (12023): Found entity 1: DisplayCntrl File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
-    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd Line: 14
-    Info (12023): Found entity 1: ClkDividerN File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd Line: 8
+    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vhd Line: 14
+    Info (12023): Found entity 1: ClkDividerN File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file decoder3_8.vhd
-    Info (12022): Found design unit 1: Decoder3_8-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Decoder3_8.vhd Line: 13
-    Info (12023): Found entity 1: Decoder3_8 File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Decoder3_8.vhd Line: 7
+    Info (12022): Found design unit 1: Decoder3_8-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Decoder3_8.vhd Line: 13
+    Info (12023): Found entity 1: Decoder3_8 File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Decoder3_8.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
-    Info (12022): Found design unit 1: Reg-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd Line: 15
-    Info (12023): Found entity 1: Reg File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd Line: 7
-Info (12127): Elaborating entity "ChronometerTop" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at ChronometerTop.vhd(31): object "s_TC_final" assigned a value but never read File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 31
-Warning (10873): Using initial value X (don't care) for net "LEDR[17..1]" at ChronometerTop.vhd(12) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDiv" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 59
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 68
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb2" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 74
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 80
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter2" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 89
-Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 135
-Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 147
-Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 151
-Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 160
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[0]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX6[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
+    Info (12022): Found design unit 1: Reg-Behavioral File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Reg.vhd Line: 15
+    Info (12023): Found entity 1: Reg File: C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Reg.vhd Line: 7
+Info (12127): Elaborating entity "Bin7SegDecoder" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 20 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 20 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-Info (21057): Implemented 333 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 23 input pins
-    Info (21059): Implemented 74 output pins
-    Info (21061): Implemented 236 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 85 warnings
-    Info: Peak virtual memory: 4804 megabytes
-    Info: Processing ended: Wed Jun 09 19:49:11 2021
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:24
+Info (21057): Implemented 18 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 7 output pins
+    Info (21061): Implemented 7 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4786 megabytes
+    Info: Processing ended: Sat Jun 12 17:12:05 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 

@@ -1,4 +1,4 @@
-'-- Projeto número 9 - Cronometro Digital
+-- Projeto número 9 - Cronometro Digital
 -- Gonçalo Silva e Samuel Teixeira
 
 library IEEE;

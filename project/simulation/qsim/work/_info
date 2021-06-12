@@ -8,91 +8,263 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/simulation/qsim
-vChronometerTop
-Z1 !s110 1623264641
+Ebin7segdecoder
+Z1 w1623514712
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 N5CzKW88F^ShIK@<7Vek12
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 DPx10 cycloneive 21 cycloneive_components 0 22 K8IbX`K5[Y1gJUKg2X_071
+Z8 dC:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim
+Z9 8cronometro.vho
+Z10 Fcronometro.vho
+l0
+L34
+V[BeiMzRQ3Oc`2mJbCg`Gj2
+!s100 HSRoaT1_MQkkb5zBHPnbk3
+Z11 OV;C;10.5b;63
+32
+Z12 !s110 1623514713
 !i10b 1
-!s100 LQb@ZVSP6JPR@5`GNJWHc0
-IBA?]oMmelQ]67ohiNQ2<d0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-w1623264640
-Z3 8cronometro.vo
-Z4 Fcronometro.vo
-Z5 L0 31
-Z6 OV;L;10.5b;63
-r1
-!s85 0
-31
-Z7 !s108 1623264641.000000
-Z8 !s107 cronometro.vo|
-Z9 !s90 -work|work|cronometro.vo|
+Z13 !s108 1623514713.000000
+Z14 !s90 -work|work|cronometro.vho|
+Z15 !s107 cronometro.vho|
 !i113 1
-Z10 o-work work
-Z11 tCvgOpt 0
-n@chronometer@top
-vChronometerTop_vlg_vec_tst
-R1
-!i10b 1
-!s100 >W<k0@P7hBLh@@<VeA2go3
-I;K_6S?^>_@Iim?S?[>b?[3
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
 R2
-R0
-w1623264639
-8ChronometerTop.vwf.vt
-FChronometerTop.vwf.vt
-Z12 L0 29
-R6
-r1
-!s85 0
-31
-R7
-!s107 ChronometerTop.vwf.vt|
-!s90 -work|work|ChronometerTop.vwf.vt|
-!i113 1
-R10
-R11
-n@chronometer@top_vlg_vec_tst
-vPCounter4
-Z13 !s110 1623264520
-!i10b 1
-!s100 VCbaDB7M7<@SSonB6SCKM3
-I@1NSS?LzR3^SU8LBk]i>h2
-R2
-R0
-w1623264519
 R3
 R4
 R5
 R6
+R7
+DEx4 work 14 bin7segdecoder 0 22 [BeiMzRQ3Oc`2mJbCg`Gj2
+l72
+L41
+V``aBfYZNdeElCz2:?Q]TM2
+!s100 =0faNQcRmod`eAUfDJOjX1
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Ebin7segdecoder_vhd_vec_tst
+Z18 w1623514711
+R5
+R6
+R8
+Z19 8Bin7SegDecoder.vwf.vht
+Z20 FBin7SegDecoder.vwf.vht
+l0
+L31
+V<MezcNE:CE`GemVj>TDMe0
+!s100 KU7`;n5Z6DO7>ml9bX<m_0
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|Bin7SegDecoder.vwf.vht|
+Z22 !s107 Bin7SegDecoder.vwf.vht|
+!i113 1
+R16
+R17
+Abin7segdecoder_arch
+R5
+R6
+DEx4 work 26 bin7segdecoder_vhd_vec_tst 0 22 <MezcNE:CE`GemVj>TDMe0
+l44
+L33
+V:5Ajj`@QG5b=lXd63HZAA3
+!s100 FiKX8eiSM0TW]>6kBkWTY2
+R11
+32
+R12
+!i10b 1
+R13
+R21
+R22
+!i113 1
+R16
+R17
+vChronometerTop
+Z23 !s110 1623264641
+!i10b 1
+!s100 LQb@ZVSP6JPR@5`GNJWHc0
+IBA?]oMmelQ]67ohiNQ2<d0
+Z24 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1623264640
+Z25 8cronometro.vo
+Z26 Fcronometro.vo
+Z27 L0 31
+Z28 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z14 !s108 1623264520.000000
+Z29 !s108 1623264641.000000
+Z30 !s107 cronometro.vo|
+Z31 !s90 -work|work|cronometro.vo|
+!i113 1
+R16
+Z32 tCvgOpt 0
+n@chronometer@top
+vChronometerTop_vlg_vec_tst
+R23
+!i10b 1
+!s100 >W<k0@P7hBLh@@<VeA2go3
+I;K_6S?^>_@Iim?S?[>b?[3
+R24
+R0
+w1623264639
+8ChronometerTop.vwf.vt
+FChronometerTop.vwf.vt
+Z33 L0 29
+R28
+r1
+!s85 0
+31
+R29
+!s107 ChronometerTop.vwf.vt|
+!s90 -work|work|ChronometerTop.vwf.vt|
+!i113 1
+R16
+R32
+n@chronometer@top_vlg_vec_tst
+Emux
+Z34 w1623514170
+R2
+R3
+R4
+R5
+R6
+R7
 R8
 R9
-!i113 1
 R10
+l0
+L34
+V<1T>`7mARTGfM^H<e<FIA2
+!s100 gVEXcE^IEB?8LaD5Lba^I2
 R11
+32
+Z35 !s110 1623514172
+!i10b 1
+Z36 !s108 1623514172.000000
+R14
+R15
+!i113 1
+R16
+R17
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 3 mux 0 22 <1T>`7mARTGfM^H<e<FIA2
+l129
+L49
+V[PdSWTUC=lFCJ<aBUAIh^2
+!s100 ddJWmOAViTO0m:k9<`=d^3
+R11
+32
+R35
+!i10b 1
+R36
+R14
+R15
+!i113 1
+R16
+R17
+Emux_vhd_vec_tst
+Z37 w1623514169
+R5
+R6
+R8
+Z38 8Mux.vwf.vht
+Z39 FMux.vwf.vht
+l0
+L31
+VnQ0?2P@1KCIl69nKhP8Om0
+!s100 f4_O^k^=W9NJDlVl?UFz<1
+R11
+32
+R35
+!i10b 1
+R36
+Z40 !s90 -work|work|Mux.vwf.vht|
+Z41 !s107 Mux.vwf.vht|
+!i113 1
+R16
+R17
+Amux_arch
+R5
+R6
+DEx4 work 15 mux_vhd_vec_tst 0 22 nQ0?2P@1KCIl69nKhP8Om0
+l60
+L33
+VlL2MR:G>[8K;jkC`SP=kQ1
+!s100 4KX`=mVULVKOf3]VOza<U2
+R11
+32
+R35
+!i10b 1
+R36
+R40
+R41
+!i113 1
+R16
+R17
+vPCounter4
+Z42 !s110 1623264520
+!i10b 1
+!s100 VCbaDB7M7<@SSonB6SCKM3
+I@1NSS?LzR3^SU8LBk]i>h2
+R24
+R0
+w1623264519
+R25
+R26
+R27
+R28
+r1
+!s85 0
+31
+Z43 !s108 1623264520.000000
+R30
+R31
+!i113 1
+R16
+R32
 n@p@counter4
 vPCounter4_vlg_vec_tst
-R13
+R42
 !i10b 1
 !s100 DT^o94@z[U@z7FRRS=a5E1
 IEWcOCZRQ[YdEnTR[CEZ[X0
-R2
+R24
 R0
 w1623264518
 8PCounter4.vwf.vt
 FPCounter4.vwf.vt
-R12
-R6
+R33
+R28
 r1
 !s85 0
 31
-R14
+R43
 !s107 PCounter4.vwf.vt|
 !s90 -work|work|PCounter4.vwf.vt|
 !i113 1
-R10
-R11
+R16
+R32
 n@p@counter4_vlg_vec_tst
