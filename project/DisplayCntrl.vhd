@@ -49,7 +49,7 @@ begin
 				if (start = '1') then
 					s_nextState <= E2;
 				else
-					s_nextState <= E2;
+					s_nextState <= E1;
 				end if;
 				
 			when E2 =>
@@ -57,9 +57,9 @@ begin
 				regSel <= "00000010";
 				busy <= '1';
 				if (start = '1') then
-					s_nextState <= E1;
-				else
 					s_nextState <= E3;
+				else
+					s_nextState <= E2;
 				end if;
 				
 			when E3 =>

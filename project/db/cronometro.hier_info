@@ -1,6 +1,6 @@
-|ClkDividerN
-clkIn => clkOut~reg0.CLK
-clkIn => s_divCounter.CLK
-clkOut << clkOut~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|Debouncer
+clk => s_dirty_In[1].CLK
+dirty_In => s_dirty_In[1].ACLR
+cleanOut <= s_dirty_In[1].DB_MAX_OUTPUT_PORT_TYPE
 
 

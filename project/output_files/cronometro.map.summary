@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Jun 14 01:18:14 2021
+Analysis & Synthesis Status : Successful - Mon Jun 14 18:07:12 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : cronometro
-Top-level Entity Name : ClkDividerN
+Top-level Entity Name : Debouncer
 Family : Cyclone IV E
-Total logic elements : 0
+Total logic elements : 1
     Total combinational functions : 0
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 2
+    Dedicated logic registers : 1
+Total registers : 1
+Total pins : 3
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
