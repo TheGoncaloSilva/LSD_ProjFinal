@@ -1,5 +1,5 @@
 EDA Netlist Writer report for cronometro
-Sat Jun 12 17:18:32 2021
+Mon Jun 14 01:18:30 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -36,9 +36,9 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sat Jun 12 17:18:32 2021 ;
+; EDA Netlist Writer Status ; Successful - Mon Jun 14 01:18:30 2021 ;
 ; Revision Name             ; cronometro                            ;
-; Top-level Entity Name     ; Bin7SegDecoder                        ;
+; Top-level Entity Name     ; ClkDividerN                           ;
 ; Family                    ; Cyclone IV E                          ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -93,14 +93,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Sat Jun 12 17:18:31 2021
+    Info: Processing started: Mon Jun 14 01:18:29 2021
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ cronometro -c cronometro
 Info (119006): Selected device EP4CE115F29C7 for design "cronometro"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file cronometro.vho in folder "C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4642 megabytes
-    Info: Processing ended: Sat Jun 12 17:18:32 2021
+    Info: Peak virtual memory: 4641 megabytes
+    Info: Processing ended: Mon Jun 14 01:18:30 2021
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

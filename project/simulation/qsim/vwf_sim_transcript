@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Bin7SegDecoder.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ClkDividerN.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -25,8 +25,8 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Sat Jun 12 17:18:30 2021
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vwf --testbench_file=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Bin7SegDecoder.vwf.vht
+    Info: Processing started: Mon Jun 14 01:18:28 2021
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vwf --testbench_file=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ClkDividerN.vwf.vht
 Info (119006): Selected device EP4CE115F29C7 for design "cronometro"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
@@ -52,14 +52,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Sat Jun 12 17:18:31 2021
+    Info: Processing started: Mon Jun 14 01:18:29 2021
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ cronometro -c cronometro
 Info (119006): Selected device EP4CE115F29C7 for design "cronometro"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file cronometro.vho in folder "C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4642 megabytes
-    Info: Processing ended: Sat Jun 12 17:18:32 2021
+    Info: Peak virtual memory: 4641 megabytes
+    Info: Processing ended: Mon Jun 14 01:18:30 2021
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -79,11 +79,11 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 
 # 10.5b
 
-# do cronometro.do
 
+# do cronometro.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:18:33 on Jun 12,2021
+# Start time: 01:18:31 on Jun 14,2021
 # vcom -work work cronometro.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -92,52 +92,52 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 # -- Loading package VITAL_Primitives
 # -- Loading package cycloneive_atom_pack
 # -- Loading package cycloneive_components
-# -- Compiling entity Bin7SegDecoder
-# -- Compiling architecture structure of Bin7SegDecoder
-# End time: 17:18:33 on Jun 12,2021, Elapsed time: 0:00:00
+# -- Compiling entity ClkDividerN
+# -- Compiling architecture structure of ClkDividerN
+# End time: 01:18:31 on Jun 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:18:33 on Jun 12,2021
-# vcom -work work Bin7SegDecoder.vwf.vht 
+# Start time: 01:18:31 on Jun 14,2021
+# vcom -work work ClkDividerN.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity Bin7SegDecoder_vhd_vec_tst
-# -- Compiling architecture Bin7SegDecoder_arch of Bin7SegDecoder_vhd_vec_tst
-# End time: 17:18:33 on Jun 12,2021, Elapsed time: 0:00:00
+# -- Compiling entity ClkDividerN_vhd_vec_tst
+# -- Compiling architecture ClkDividerN_arch of ClkDividerN_vhd_vec_tst
+# End time: 01:18:31 on Jun 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Bin7SegDecoder_vhd_vec_tst 
-# Start time: 17:18:33 on Jun 12,2021
+# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.ClkDividerN_vhd_vec_tst 
+# Start time: 01:18:31 on Jun 14,2021
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.bin7segdecoder_vhd_vec_tst(bin7segdecoder_arch)
+# Loading work.clkdividern_vhd_vec_tst(clkdividern_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading cycloneive.cycloneive_atom_pack(body)
 # Loading cycloneive.cycloneive_components
-# Loading work.bin7segdecoder(structure)
+# Loading work.clkdividern(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneive.cycloneive_io_obuf(arch)
 # Loading cycloneive.cycloneive_io_ibuf(arch)
-# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
 # after#31
 
-# End time: 17:18:33 on Jun 12,2021, Elapsed time: 0:00:00
+# End time: 01:18:31 on Jun 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vwf...
+Reading C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vwf...
 
 Reading C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/cronometro.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/cronometro_20210612171833.sim.vwf
+Writing the resulting VWF to C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/cronometro_20210614011831.sim.vwf
 
 Finished VCD to VWF conversion.
 

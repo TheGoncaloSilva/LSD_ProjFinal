@@ -1,5 +1,5 @@
 Flow report for cronometro
-Sat Jun 12 17:18:32 2021
+Mon Jun 14 01:18:30 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Jun 12 17:18:32 2021       ;
+; Flow Status                        ; Successful - Mon Jun 14 01:18:30 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
-; Top-level Entity Name              ; Bin7SegDecoder                              ;
+; Top-level Entity Name              ; ClkDividerN                                 ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 7                                           ;
-;     Total combinational functions  ; 7                                           ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
-; Total pins                         ; 11                                          ;
+; Total pins                         ; 2                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -64,32 +64,32 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/12/2021 17:11:56 ;
+; Start date & time ; 06/14/2021 01:18:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cronometro          ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                               ;
-+-------------------------------------+----------------------------------------+---------------+----------------+----------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id     ;
-+-------------------------------------+----------------------------------------+---------------+----------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 186419484940.162351431510152           ; --            ; --             ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --             ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --             ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --             ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --             ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --             ; --             ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --             ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; Bin7SegDecoder ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; Bin7SegDecoder ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; Bin7SegDecoder ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --             ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --             ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --             ; --             ;
-; TOP_LEVEL_ENTITY                    ; Bin7SegDecoder                         ; cronometro    ; --             ; --             ;
-+-------------------------------------+----------------------------------------+---------------+----------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                            ;
++-------------------------------------+----------------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 186419484940.162362988412144           ; --            ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; ClkDividerN ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; ClkDividerN ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; ClkDividerN ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; ClkDividerN                            ; cronometro    ; --          ; --             ;
++-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -97,10 +97,9 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4786 MB             ; 00:00:20                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4637 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4638 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4642 MB             ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4787 MB             ; 00:00:21                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4637 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4641 MB             ; 00:00:01                           ;
 ; Total                ; 00:00:12     ; --                      ; --                  ; 00:00:23                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
@@ -113,7 +112,6 @@ refer to the applicable agreement for further details.
 ; Analysis & Synthesis ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -121,8 +119,7 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off cronometro -c cronometro
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Waveform.vwf --testbench_file=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Waveform.vwf.vht
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vwf --testbench_file=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Bin7SegDecoder.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vwf --testbench_file=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ClkDividerN.vwf.vht
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ cronometro -c cronometro
 
 

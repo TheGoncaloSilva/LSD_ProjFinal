@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Jun 12 17:12:05 2021
+Analysis & Synthesis Status : Successful - Mon Jun 14 01:18:14 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : cronometro
-Top-level Entity Name : Bin7SegDecoder
+Top-level Entity Name : ClkDividerN
 Family : Cyclone IV E
-Total logic elements : 7
-    Total combinational functions : 7
+Total logic elements : 0
+    Total combinational functions : 0
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 11
+Total pins : 2
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
