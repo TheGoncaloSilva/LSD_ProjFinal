@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cronometro
-Tue Jun 15 15:45:13 2021
+Tue Jun 15 18:54:16 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -22,20 +22,22 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  14. Parameter Settings for User Entity Instance: ClkDividerN:clkDiv
  15. Parameter Settings for User Entity Instance: DebounceUnit:deb1
  16. Parameter Settings for User Entity Instance: DebounceUnit:deb2
- 17. Parameter Settings for User Entity Instance: SyncGen:SyncGen
- 18. Parameter Settings for User Entity Instance: PCounter4:counter0
- 19. Parameter Settings for User Entity Instance: PCounter4:counter1
- 20. Parameter Settings for User Entity Instance: PCounter4:counter2
- 21. Parameter Settings for User Entity Instance: PCounter4:counter3
- 22. Parameter Settings for User Entity Instance: PCounter4:counter4
- 23. Parameter Settings for User Entity Instance: PCounter4:counter5
- 24. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod0
- 25. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod1
- 26. Port Connectivity Checks: "DisplayCntrl:DisplayCntrl"
- 27. Port Connectivity Checks: "Mux:Mux"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
+ 17. Parameter Settings for User Entity Instance: DebounceUnit:deb3
+ 18. Parameter Settings for User Entity Instance: SyncGen:SyncGen
+ 19. Parameter Settings for User Entity Instance: PCounter4:counter0
+ 20. Parameter Settings for User Entity Instance: PCounter4:counter1
+ 21. Parameter Settings for User Entity Instance: PCounter4:counter2
+ 22. Parameter Settings for User Entity Instance: PCounter4:counter3
+ 23. Parameter Settings for User Entity Instance: PCounter4:counter4
+ 24. Parameter Settings for User Entity Instance: PCounter4:counter5
+ 25. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod0
+ 26. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod1
+ 27. Port Connectivity Checks: "DisplayCntrl:DisplayCntrl"
+ 28. Port Connectivity Checks: "Mux:Mux"
+ 29. Port Connectivity Checks: "DebounceUnit:deb3"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -61,13 +63,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 15 15:45:13 2021       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 15 18:54:16 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
 ; Top-level Entity Name              ; ChronometerTop                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,494                                       ;
-;     Total combinational functions  ; 1,442                                       ;
+; Total logic elements               ; 1,533                                       ;
+;     Total combinational functions  ; 1,481                                       ;
 ;     Dedicated logic registers      ; 177                                         ;
 ; Total registers                    ; 177                                         ;
 ; Total pins                         ; 97                                          ;
@@ -169,46 +171,44 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                    ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; PCounter4.vhd                    ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PCounter4.vhd              ;         ;
-; Mux.vhd                          ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd                    ;         ;
-; Bin7SegDecoder.vhd               ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Bin7SegDecoder.vhd         ;         ;
-; DebounceUnit.vhd                 ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DebounceUnit.vhd           ;         ;
-; ChronometerTop.vhd               ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd         ;         ;
-; DisplayCntrl.vhd                 ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DisplayCntrl.vhd           ;         ;
-; ClkDividerN.vhd                  ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd            ;         ;
-; Reg.vhd                          ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd                    ;         ;
-; output_files/SyncGen.vhd         ; yes             ; User VHDL File               ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd   ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                           ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc                          ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc                      ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                           ;         ;
-; db/lpm_divide_qcm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/lpm_divide_qcm.tdf      ;         ;
-; db/sign_div_unsign_fnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/sign_div_unsign_fnh.tdf ;         ;
-; db/alt_u_div_iaf.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/alt_u_div_iaf.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/add_sub_8pc.tdf         ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; PCounter4.vhd                    ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PCounter4.vhd              ;         ;
+; Mux.vhd                          ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Mux.vhd                    ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Bin7SegDecoder.vhd         ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/DebounceUnit.vhd           ;         ;
+; ChronometerTop.vhd               ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd         ;         ;
+; DisplayCntrl.vhd                 ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/DisplayCntrl.vhd           ;         ;
+; ClkDividerN.vhd                  ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ClkDividerN.vhd            ;         ;
+; Reg.vhd                          ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Reg.vhd                    ;         ;
+; output_files/SyncGen.vhd         ; yes             ; User VHDL File               ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd   ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                    ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc                   ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc               ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                    ;         ;
+; db/lpm_divide_qcm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/lpm_divide_qcm.tdf      ;         ;
+; db/sign_div_unsign_fnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/sign_div_unsign_fnh.tdf ;         ;
+; db/alt_u_div_iaf.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/alt_u_div_iaf.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/add_sub_8pc.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -216,17 +216,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,494          ;
+; Estimated Total logic elements              ; 1,533          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1442           ;
+; Total combinational functions               ; 1481           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 442            ;
-;     -- 3 input functions                    ; 369            ;
-;     -- <=2 input functions                  ; 631            ;
+;     -- 4 input functions                    ; 427            ;
+;     -- 3 input functions                    ; 412            ;
+;     -- <=2 input functions                  ; 642            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 1046           ;
-;     -- arithmetic mode                      ; 396            ;
+;     -- normal mode                          ; 1052           ;
+;     -- arithmetic mode                      ; 429            ;
 ;                                             ;                ;
 ; Total registers                             ; 177            ;
 ;     -- Dedicated logic registers            ; 177            ;
@@ -238,7 +238,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 177            ;
-; Total fan-out                               ; 4768           ;
+; Total fan-out                               ; 4867           ;
 ; Average fan-out                             ; 2.63           ;
 +---------------------------------------------+----------------+
 
@@ -248,19 +248,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |ChronometerTop                           ; 1442 (5)            ; 177 (3)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                                                                                                                 ; ChronometerTop      ; work         ;
+; |ChronometerTop                           ; 1481 (28)           ; 177 (3)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                                                                                                                 ; ChronometerTop      ; work         ;
 ;    |Bin7SegDecoder:segDecoder|            ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Bin7SegDecoder:segDecoder                                                                                       ; Bin7SegDecoder      ; work         ;
 ;    |ClkDividerN:clkDiv|                   ; 40 (40)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|ClkDividerN:clkDiv                                                                                              ; ClkDividerN         ; work         ;
 ;    |DebounceUnit:deb1|                    ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb1                                                                                               ; DebounceUnit        ; work         ;
-;    |DebounceUnit:deb2|                    ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb2                                                                                               ; DebounceUnit        ; work         ;
-;    |DisplayCntrl:DisplayCntrl|            ; 14 (14)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DisplayCntrl:DisplayCntrl                                                                                       ; DisplayCntrl        ; work         ;
+;    |DebounceUnit:deb2|                    ; 66 (66)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb2                                                                                               ; DebounceUnit        ; work         ;
+;    |DisplayCntrl:DisplayCntrl|            ; 13 (13)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DisplayCntrl:DisplayCntrl                                                                                       ; DisplayCntrl        ; work         ;
 ;    |Mux:Mux|                              ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Mux:Mux                                                                                                         ; Mux                 ; work         ;
-;    |PCounter4:counter0|                   ; 14 (14)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter0                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter1|                   ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter1                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter2|                   ; 9 (9)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter2                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter3|                   ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter3                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter4|                   ; 9 (9)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter4                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter5|                   ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter5                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter0|                   ; 17 (17)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter0                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter1|                   ; 13 (13)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter1                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter2|                   ; 12 (12)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter2                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter3|                   ; 13 (13)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter3                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter4|                   ; 12 (12)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter4                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter5|                   ; 13 (13)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter5                                                                                              ; PCounter4           ; work         ;
 ;    |Reg:reg1|                             ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg1                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg2|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg2                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg3|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg3                                                                                                        ; Reg                 ; work         ;
@@ -317,8 +317,9 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+----------------------+------------------------+
 ; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
 +----------------------------------------------------+----------------------+------------------------+
+; LEDR[14]$latch                                     ; s_currentState.start ; yes                    ;
 ; s_main_counters                                    ; s_currentState.clear ; yes                    ;
-; Number of user-specified and inferred latches = 1  ;                      ;                        ;
+; Number of user-specified and inferred latches = 2  ;                      ;                        ;
 +----------------------------------------------------+----------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -364,11 +365,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 177   ;
-; Number of registers using Synchronous Clear  ; 34    ;
+; Number of registers using Synchronous Clear  ; 47    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 126   ;
+; Number of registers using Clock Enable       ; 124   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -378,14 +379,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter0|s_count[3]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter1|s_count[3]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter2|s_count[2]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter3|s_count[3]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter4|s_count[2]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter5|s_count[2]            ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb1|s_debounceCnt[4]       ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb2|s_debounceCnt[18]      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter0|s_count[2]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter0|s_count[0]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter1|s_count[2]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter1|s_count[3]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter2|s_count[2]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter2|s_count[3]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter3|s_count[3]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter3|s_count[2]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter4|s_count[1]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter4|s_count[3]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter5|s_count[1]            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter5|s_count[0]            ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb1|s_debounceCnt[22]      ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb2|s_debounceCnt[0]       ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState ;
 ; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |ChronometerTop|Mux:Mux|dataOut[1]                       ;
 ; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |ChronometerTop|Reg:reg1|dataOut                         ;
@@ -417,6 +424,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +----------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: DebounceUnit:deb2 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                        ;
+; msecmininwidth ; 100   ; Signed Integer                        ;
+; inpolarity     ; '1'   ; Enumerated                            ;
+; outpolarity    ; '1'   ; Enumerated                            ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:deb3 ;
 +----------------+-------+---------------------------------------+
 ; Parameter Name ; Value ; Type                                  ;
 +----------------+-------+---------------------------------------+
@@ -574,6 +594,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------+-------+----------+--------------+
 
 
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DebounceUnit:deb3"                                                                      ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; cleanout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -581,23 +610,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; boundary_port         ; 97                          ;
 ; cycloneiii_ff         ; 177                         ;
-;     ENA               ; 125                         ;
-;     ENA SCLR          ; 1                           ;
-;     SCLR              ; 33                          ;
-;     plain             ; 18                          ;
-; cycloneiii_lcell_comb ; 1443                        ;
-;     arith             ; 396                         ;
-;         2 data inputs ; 95                          ;
-;         3 data inputs ; 301                         ;
-;     normal            ; 1047                        ;
+;     ENA               ; 111                         ;
+;     ENA SCLR          ; 13                          ;
+;     SCLR              ; 34                          ;
+;     plain             ; 19                          ;
+; cycloneiii_lcell_comb ; 1482                        ;
+;     arith             ; 429                         ;
+;         2 data inputs ; 101                         ;
+;         3 data inputs ; 328                         ;
+;     normal            ; 1053                        ;
 ;         0 data inputs ; 20                          ;
-;         1 data inputs ; 5                           ;
+;         1 data inputs ; 10                          ;
 ;         2 data inputs ; 512                         ;
-;         3 data inputs ; 68                          ;
-;         4 data inputs ; 442                         ;
+;         3 data inputs ; 84                          ;
+;         4 data inputs ; 427                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 46.60                       ;
-; Average LUT depth     ; 31.84                       ;
+; Average LUT depth     ; 30.95                       ;
 +-----------------------+-----------------------------+
 
 
@@ -606,7 +635,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -616,130 +645,132 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Jun 15 15:45:01 2021
+    Info: Processing started: Tue Jun 15 18:54:05 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cronometro -c cronometro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file pcounter4.vhd
-    Info (12022): Found design unit 1: PCounter4-Behav File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PCounter4.vhd Line: 21
-    Info (12023): Found entity 1: PCounter4 File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PCounter4.vhd Line: 9
-Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd Line: 7
+    Info (12022): Found design unit 1: PCounter4-Behav File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PCounter4.vhd Line: 22
+    Info (12023): Found entity 1: PCounter4 File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PCounter4.vhd Line: 9
+Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Mux.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
-    Info (12022): Found design unit 1: Mux-Behav File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd Line: 13
-    Info (12023): Found entity 1: Mux File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Mux.vhd Line: 7
+    Info (12022): Found design unit 1: Mux-Behav File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Mux.vhd Line: 13
+    Info (12023): Found entity 1: Mux File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Mux.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
-    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 12
-    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 7
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 12
+    Info (12023): Found entity 1: Bin7SegDecoder File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Bin7SegDecoder.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file pulsegeneratorn.vhd
-    Info (12022): Found design unit 1: PulseGeneratorN-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 14
-    Info (12023): Found entity 1: PulseGeneratorN File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 5
+    Info (12022): Found design unit 1: PulseGeneratorN-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 14
+    Info (12023): Found entity 1: PulseGeneratorN File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PulseGeneratorN.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
-    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DebounceUnit.vhd Line: 18
-    Info (12023): Found entity 1: DebounceUnit File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DebounceUnit.vhd Line: 8
+    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/DebounceUnit.vhd Line: 18
+    Info (12023): Found entity 1: DebounceUnit File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/DebounceUnit.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file chronometertop.vhd
-    Info (12022): Found design unit 1: ChronometerTop-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 15
-    Info (12023): Found entity 1: ChronometerTop File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 7
+    Info (12022): Found design unit 1: ChronometerTop-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 16
+    Info (12023): Found entity 1: ChronometerTop File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file displaycntrl.vhd
-    Info (12022): Found design unit 1: DisplayCntrl-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 14
-    Info (12023): Found entity 1: DisplayCntrl File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 4
+    Info (12022): Found design unit 1: DisplayCntrl-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 14
+    Info (12023): Found entity 1: DisplayCntrl File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/DisplayCntrl.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
-    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd Line: 14
-    Info (12023): Found entity 1: ClkDividerN File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd Line: 8
+    Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ClkDividerN.vhd Line: 14
+    Info (12023): Found entity 1: ClkDividerN File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ClkDividerN.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file decoder3_8.vhd
-    Info (12022): Found design unit 1: Decoder3_8-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Decoder3_8.vhd Line: 13
-    Info (12023): Found entity 1: Decoder3_8 File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Decoder3_8.vhd Line: 7
+    Info (12022): Found design unit 1: Decoder3_8-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Decoder3_8.vhd Line: 13
+    Info (12023): Found entity 1: Decoder3_8 File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Decoder3_8.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
-    Info (12022): Found design unit 1: Reg-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd Line: 15
-    Info (12023): Found entity 1: Reg File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd Line: 7
+    Info (12022): Found design unit 1: Reg-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Reg.vhd Line: 15
+    Info (12023): Found entity 1: Reg File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Reg.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file debouncer.vhd
-    Info (12022): Found design unit 1: Debouncer-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Debouncer.vhd Line: 16
-    Info (12023): Found entity 1: Debouncer File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Debouncer.vhd Line: 8
+    Info (12022): Found design unit 1: Debouncer-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Debouncer.vhd Line: 16
+    Info (12023): Found entity 1: Debouncer File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/Debouncer.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file output_files/syncgen.vhd
-    Info (12022): Found design unit 1: SyncGen-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 17
-    Info (12023): Found entity 1: SyncGen File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 4
+    Info (12022): Found design unit 1: SyncGen-Behavioral File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 17
+    Info (12023): Found entity 1: SyncGen File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 4
 Info (12127): Elaborating entity "ChronometerTop" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at ChronometerTop.vhd(112): inferring latch(es) for signal or variable "s_main_counters", which holds its previous value in one or more paths through the process File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 112
-Warning (10873): Using initial value X (don't care) for net "LEDR[17..7]" at ChronometerTop.vhd(12) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-Info (10041): Inferred latch for "s_main_counters" at ChronometerTop.vhd(112) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 112
-Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDiv" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 73
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 82
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb2" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 88
-Info (12129): Elaborating entity "SyncGen" using architecture "A:behavioral" for hierarchy "SyncGen:SyncGen" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 93
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 146
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter3" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 183
-Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 220
-Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 232
-Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 236
-Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 245
+Warning (10036): Verilog HDL or VHDL warning at ChronometerTop.vhd(73): object "s_mode" assigned a value but never read File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 73
+Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(146): signal "s_max_value" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 146
+Warning (10631): VHDL Process Statement warning at ChronometerTop.vhd(124): inferring latch(es) for signal or variable "s_main_counters", which holds its previous value in one or more paths through the process File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 124
+Warning (10631): VHDL Process Statement warning at ChronometerTop.vhd(124): inferring latch(es) for signal or variable "LEDR", which holds its previous value in one or more paths through the process File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 124
+Warning (10873): Using initial value X (don't care) for net "LEDR[17..16]" at ChronometerTop.vhd(13) File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+Warning (10873): Using initial value X (don't care) for net "LEDR[13..7]" at ChronometerTop.vhd(13) File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+Info (10041): Inferred latch for "LEDR[14]" at ChronometerTop.vhd(124) File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 124
+Info (10041): Inferred latch for "s_main_counters" at ChronometerTop.vhd(124) File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 124
+Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDiv" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 80
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb1" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 89
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb2" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 95
+Info (12129): Elaborating entity "SyncGen" using architecture "A:behavioral" for hierarchy "SyncGen:SyncGen" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 105
+Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter0" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 160
+Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter3" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 200
+Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 250
+Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 262
+Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 266
+Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 275
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
-Info (12130): Elaborated megafunction instantiation "SyncGen:SyncGen|lpm_divide:Mod0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
-Info (12133): Instantiated megafunction "SyncGen:SyncGen|lpm_divide:Mod0" with the following parameter: File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod0" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod1" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
+Info (12130): Elaborated megafunction instantiation "SyncGen:SyncGen|lpm_divide:Mod0" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
+Info (12133): Instantiated megafunction "SyncGen:SyncGen|lpm_divide:Mod0" with the following parameter: File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
     Info (12134): Parameter "LPM_WIDTHN" = "26"
     Info (12134): Parameter "LPM_WIDTHD" = "26"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_qcm.tdf
-    Info (12023): Found entity 1: lpm_divide_qcm File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/lpm_divide_qcm.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_qcm File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/lpm_divide_qcm.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fnh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_fnh File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/sign_div_unsign_fnh.tdf Line: 24
+    Info (12023): Found entity 1: sign_div_unsign_fnh File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/sign_div_unsign_fnh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_iaf.tdf
-    Info (12023): Found entity 1: alt_u_div_iaf File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/alt_u_div_iaf.tdf Line: 26
+    Info (12023): Found entity 1: alt_u_div_iaf File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/alt_u_div_iaf.tdf Line: 26
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/add_sub_7pc.tdf Line: 22
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/add_sub_7pc.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/db/add_sub_8pc.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "SyncGen:SyncGen|lpm_divide:Mod1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
-Info (12133): Instantiated megafunction "SyncGen:SyncGen|lpm_divide:Mod1" with the following parameter: File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/db/add_sub_8pc.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "SyncGen:SyncGen|lpm_divide:Mod1" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
+Info (12133): Instantiated megafunction "SyncGen:SyncGen|lpm_divide:Mod1" with the following parameter: File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
     Info (12134): Parameter "LPM_WIDTHN" = "26"
     Info (12134): Parameter "LPM_WIDTHD" = "26"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 20 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 9
-    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-Info (21057): Implemented 1598 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 19 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/ChronometerTop.vhd Line: 11
+Info (21057): Implemented 1637 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 74 output pins
-    Info (21061): Implemented 1501 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 4827 megabytes
-    Info: Processing ended: Tue Jun 15 15:45:13 2021
-    Info: Elapsed time: 00:00:12
+    Info (21061): Implemented 1540 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 4820 megabytes
+    Info: Processing ended: Tue Jun 15 18:54:16 2021
+    Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:23
 
 

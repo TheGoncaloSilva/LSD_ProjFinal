@@ -1,5 +1,5 @@
 Flow report for cronometro
-Tue Jun 15 15:45:53 2021
+Tue Jun 15 18:54:42 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Jun 15 15:45:52 2021       ;
+; Flow Status                        ; Successful - Tue Jun 15 18:54:42 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
 ; Top-level Entity Name              ; ChronometerTop                              ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,499 / 114,480 ( 1 % )                     ;
-;     Total combinational functions  ; 1,442 / 114,480 ( 1 % )                     ;
+; Total logic elements               ; 1,538 / 114,480 ( 1 % )                     ;
+;     Total combinational functions  ; 1,481 / 114,480 ( 1 % )                     ;
 ;     Dedicated logic registers      ; 177 / 114,480 ( < 1 % )                     ;
 ; Total registers                    ; 177                                         ;
 ; Total pins                         ; 97 / 529 ( 18 % )                           ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/15/2021 15:45:02 ;
+; Start date & time ; 06/15/2021 18:54:06 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cronometro          ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+----------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.162376830201760         ; --            ; --             ; --             ;
+; COMPILER_SIGNATURE_ID               ; 186419484940.162377964506392           ; --            ; --             ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --             ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --             ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --             ; eda_simulation ;
@@ -97,12 +97,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 4827 MB             ; 00:00:22                           ;
-; Fitter                    ; 00:00:21     ; 1.1                     ; 5844 MB             ; 00:00:41                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 4683 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 1.2                     ; 4875 MB             ; 00:00:04                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4663 MB             ; 00:00:03                           ;
-; Total                     ; 00:00:44     ; --                      ; --                  ; 00:01:14                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 4820 MB             ; 00:00:22                           ;
+; Fitter                    ; 00:00:15     ; 1.0                     ; 5713 MB             ; 00:00:27                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 4682 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.1                     ; 4851 MB             ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4665 MB             ; 00:00:02                           ;
+; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:57                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,11 +111,11 @@ refer to the applicable agreement for further details.
 +---------------------------+------------------+------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-FKJRH56  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; DESKTOP-FKJRH56  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; DESKTOP-FKJRH56  ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-FKJRH56  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-FKJRH56  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer        ; LAPTOP-8FJJMQ4G  ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 

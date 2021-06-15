@@ -13,6 +13,7 @@ entity PCounter4 is
 	     enable : in std_logic;
 		  mainEn	: in std_logic;
 	     reset  : in std_logic;
+		  mode   : in std_logic;
 		  TC     : out std_logic;
 		  Q      : out std_logic_vector(3 downto 0));
 
@@ -29,12 +30,22 @@ begin
 				TC <= '0';
 			else
 			   if(enable = '1' and mainEn = '1') then
-				   if(to_integer(s_count) = max) then
-					   s_count <= "0000";
-						TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+				   if(mode = '0') then					   
+						if(to_integer(s_count) = max) then
+							s_count <= "0000";
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count + 1;
+							TC <= '0';
+						end if;
 					else
-					   s_count <= s_count + 1;
-						TC <= '0';
+					   if(to_integer(s_count) = min) then
+							s_count <= to_unsigned(max, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count - 1;
+							TC <= '0';
+						end if;      
 					end if;
 				end if;
 			end if;

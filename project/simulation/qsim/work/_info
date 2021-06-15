@@ -640,6 +640,96 @@ R32
 R16
 R33
 n@p@counter4
+Epcounter4
+Z81 w1623771889
+R3
+R7
+R2
+R52
+R4
+R5
+R6
+R53
+Z82 dC:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/simulation/qsim
+R9
+R10
+l0
+L36
+V8aHZ^LGekk8=ic4AT9?SN3
+!s100 mT[89GPXmCl5<[<hbTjN<0
+R11
+32
+Z83 !s110 1623771891
+!i10b 1
+Z84 !s108 1623771891.000000
+R14
+R15
+!i113 1
+R16
+R17
+Astructure
+R3
+R7
+R2
+R52
+R4
+R5
+R6
+R53
+DEx4 work 9 pcounter4 0 22 8aHZ^LGekk8=ic4AT9?SN3
+l94
+L48
+VH3_7E:6RZLN=SzSKa^mQm0
+!s100 E[H9<:[fDW^`U60DFC49l3
+R11
+32
+R83
+!i10b 1
+R84
+R14
+R15
+!i113 1
+R16
+R17
+Epcounter4_vhd_vec_tst
+Z85 w1623771888
+R5
+R6
+R82
+R19
+R20
+l0
+L31
+V<Nb7Jb4l@>6O=;^NN06Kj1
+!s100 ;4iS?8BN3nB0m=@l3m:Pj0
+R11
+32
+R83
+!i10b 1
+R84
+R22
+R23
+!i113 1
+R16
+R17
+Apcounter4_arch
+R5
+R6
+DEx4 work 21 pcounter4_vhd_vec_tst 0 22 <Nb7Jb4l@>6O=;^NN06Kj1
+l54
+L33
+V5CliCM6dEl2B7CNe8k7gZ3
+!s100 2JEHP^2YQfFHZGcaG7o5j1
+R11
+32
+R83
+!i10b 1
+R84
+R22
+R23
+!i113 1
+R16
+R17
 vPCounter4_vlg_vec_tst
 R79
 !i10b 1
@@ -663,7 +753,7 @@ R16
 R33
 n@p@counter4_vlg_vec_tst
 Epulsegeneratorn
-Z81 w1623629846
+Z86 w1623629846
 R3
 R7
 R2
@@ -681,9 +771,9 @@ V4?`mbId;6U1n4TGED@:0W1
 !s100 2oCB[<DfcX6]iSZ3>ZJG>0
 R11
 32
-Z82 !s110 1623629847
+Z87 !s110 1623629847
 !i10b 1
-Z83 !s108 1623629847.000000
+Z88 !s108 1623629847.000000
 R14
 R15
 !i113 1
@@ -705,32 +795,32 @@ VcI]EM=0ja6jMYb;Ck?ZiA0
 !s100 ];5zbHJEMXgVWH^BBPeDa3
 R11
 32
-R82
+R87
 !i10b 1
-R83
+R88
 R14
 R15
 !i113 1
 R16
 R17
 Epulsegeneratorn_vhd_vec_tst
-Z84 w1623629845
+Z89 w1623629845
 R5
 R6
 R8
-Z85 8Reg.vwf.vht
-Z86 FReg.vwf.vht
+Z90 8Reg.vwf.vht
+Z91 FReg.vwf.vht
 l0
 L31
 VXziKm2CMWmCMJEfln<LSn2
 !s100 dWc?E<iJjz_P<D9eUS9:G1
 R11
 32
-R82
+R87
 !i10b 1
-R83
-Z87 !s90 -work|work|Reg.vwf.vht|
-Z88 !s107 Reg.vwf.vht|
+R88
+Z92 !s90 -work|work|Reg.vwf.vht|
+Z93 !s107 Reg.vwf.vht|
 !i113 1
 R16
 R17
@@ -744,16 +834,16 @@ V:44MD_bQ9i]Q7b12n:1?k3
 !s100 D@TVea5Y;6?`nEJO<M0on3
 R11
 32
-R82
-!i10b 1
-R83
 R87
+!i10b 1
 R88
+R92
+R93
 !i113 1
 R16
 R17
 Ereg
-Z89 w1623605453
+Z94 w1623605453
 R3
 R7
 R2
@@ -771,9 +861,9 @@ V8LX9]cY3W_NKO593T>O0E0
 !s100 LXa>dmnjM5;XB4NMeRLSj2
 R11
 32
-Z90 !s110 1623605455
+Z95 !s110 1623605455
 !i10b 1
-Z91 !s108 1623605455.000000
+Z96 !s108 1623605455.000000
 R14
 R15
 !i113 1
@@ -795,32 +885,32 @@ VJhTR5Ja780gOGPmX:I`513
 !s100 F^A7LC0aCL<^77JPAY;]>2
 R11
 32
-R90
+R95
 !i10b 1
-R91
+R96
 R14
 R15
 !i113 1
 R16
 R17
 Ereg_vhd_vec_tst
-Z92 w1623605451
+Z97 w1623605451
 R5
 R6
 R8
-R85
-R86
+R90
+R91
 l0
 L31
 VS_79MMM:APOM0R@o2i@W71
 !s100 :FSXHo2:W>3W^?@]7f_JH2
 R11
 32
-R90
+R95
 !i10b 1
-R91
-R87
-R88
+R96
+R92
+R93
 !i113 1
 R16
 R17
@@ -834,11 +924,11 @@ V<NX`BF;gd5M72b=Dz7I^21
 !s100 AX:ccA45KdW[@8V:glkH?2
 R11
 32
-R90
+R95
 !i10b 1
-R91
-R87
-R88
+R96
+R92
+R93
 !i113 1
 R16
 R17

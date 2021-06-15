@@ -3,6 +3,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
 
 entity ChronometerTop is
 	port(	CLOCK_50	: in  std_logic;
@@ -68,6 +69,12 @@ architecture Behavioral of ChronometerTop is
 	-- Fio da FSM para o DisplayCntrl
 	signal s_main_Display : std_logic;
 	
+	-- Fio que liga do Debouncer 3 aos Counters para indicar o modo de contagem 
+	signal s_mode : std_logic;
+	
+	-- Fio que valor máximo ou mínimo do cronómetro(00:00:00 ou 99:59:99)
+	signal s_max_value : std_logic;
+	
 begin
 
 	clkDiv : entity work.ClkDividerN(Behavioral)
@@ -89,6 +96,11 @@ begin
 		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
 					dirtyIn	=> SW(0), -- Switch do reset
 					cleanOut	=> s_reset);
+				
+	deb3 : entity work.DebounceUnit(Behavioral)
+		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
+					dirtyIn	=> SW(1), -- Switch do reset
+					cleanOut	=> s_mode);
 					
 	SyncGen : entity work.SyncGen(Behavioral)
 		generic map(numberSteps	=> 50000000,
@@ -131,10 +143,12 @@ begin
 			when start =>
 				s_main_counters <= '1';
 				s_main_Display <= '1';
-				if (s_start_stop = '1') then
+				if (s_start_stop = '1' or s_max_value = '1') then
 					s_nextState <= stop;
+					LEDR(14) <= '1';
 				else
 					s_nextState <= start;
+					LEDR(14) <= '0';
 				end if;
 				
 			when others => -- caso exista outra condição
@@ -150,6 +164,7 @@ begin
 					reset 	=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_Time_Clock, -- Start and stop
+					mode     => SW(1), 
 					TC			=> s_TC0_1,
 					Q			=> s_Q0);
 					
@@ -167,6 +182,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC0_1 and s_time_Clock,
+					mode     => sw(1),
 					TC			=> s_TC1_2,
 					Q			=> s_Q1);
 					
@@ -177,6 +193,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC1_2 and s_tC0_1 and s_time_Clock,
+					mode     => sw(1),
 					TC			=> s_TC2_3,
 					Q			=> s_Q2);
 					
@@ -187,6 +204,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					mode     => sw(1),
 					TC			=> s_TC3_4,
 					Q			=> s_Q3);
 					
@@ -197,6 +215,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					mode     => sw(1),
 					TC			=> s_TC4_5,
 					Q			=> s_Q4);
 					
@@ -207,8 +226,19 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC4_5 and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					mode     => sw(1),
 					TC			=> s_TC_final,
 					Q			=> s_Q5);
+					
+	process(S_Q0, S_Q1, S_Q2, S_Q3, S_Q4, S_Q5)
+	begin
+	   if((unsigned(S_Q0) + unsigned(S_Q1) + unsigned(S_Q2) + unsigned(S_Q3) + unsigned(S_Q4) + unsigned(S_Q5) = to_unsigned(0, 4))) then
+		   s_max_value <= '1';
+			LEDR(15) <= '1';
+		else			s_max_value <= '0';
+			LEDR(15) <= '0';
+		end if;
+	end process;
 					
 	LEDR(1) <= s_TC0_1;
 	LEDR(2) <= s_TC1_2;
