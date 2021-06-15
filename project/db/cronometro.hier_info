@@ -1,6 +1,5 @@
 |ChronometerTop
 CLOCK_50 => clkdividern:clkDiv.clkIn
-CLOCK_50 => s_currentState.CLK
 CLOCK_50 => debounceunit:deb1.refClk
 CLOCK_50 => debounceunit:deb2.refClk
 CLOCK_50 => syncgen:SyncGen.clkIn
@@ -19,6 +18,7 @@ CLOCK_50 => reg:reg5.clk
 CLOCK_50 => reg:reg6.clk
 CLOCK_50 => reg:reg7.clk
 CLOCK_50 => reg:reg8.clk
+CLOCK_50 => s_currentState~1.DATAIN
 SW[0] => debounceunit:deb2.dirtyIn
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~

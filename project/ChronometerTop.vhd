@@ -59,7 +59,7 @@ architecture Behavioral of ChronometerTop is
 	signal s_time_Clock : std_logic;
 	
 	-- Sinais para a FSM que controla o start and stop
-	type TState is (stop, start);
+	type TState is (stop, start, clear);
 	signal s_currentState, s_nextState : TState;
 	
 	-- Fio da FSM para os counters
@@ -102,7 +102,7 @@ begin
 	begin
 		if (rising_edge(CLOCK_50)) then
 			if (s_reset = '1') then
-				s_currentState <= stop;
+				s_currentState <= clear;
 			else
 				s_currentState <= s_nextState;
 			end if;
@@ -111,7 +111,7 @@ begin
 
 	Comb_Start_Stop : process(s_currentState, s_start_stop, s_reset)
 	begin
-		case (s_currentState) is					
+		case (s_currentState) is
 			when stop =>
 				s_main_counters <= '0';
 				s_main_Display <= '0';
@@ -120,6 +120,13 @@ begin
 				else
 					s_nextState <= stop;
 				end if;
+			when clear =>
+				s_main_Display <= '1';
+				if (s_start_stop = '1') then
+					s_nextState <= start;
+				else
+					s_nextState <= clear;
+				end if;		
 				
 			when start =>
 				s_main_counters <= '1';

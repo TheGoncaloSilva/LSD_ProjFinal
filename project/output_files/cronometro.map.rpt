@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cronometro
-Tue Jun 15 15:07:01 2021
+Tue Jun 15 15:45:13 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,27 +13,29 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: ClkDividerN:clkDiv
- 13. Parameter Settings for User Entity Instance: DebounceUnit:deb1
- 14. Parameter Settings for User Entity Instance: DebounceUnit:deb2
- 15. Parameter Settings for User Entity Instance: SyncGen:SyncGen
- 16. Parameter Settings for User Entity Instance: PCounter4:counter0
- 17. Parameter Settings for User Entity Instance: PCounter4:counter1
- 18. Parameter Settings for User Entity Instance: PCounter4:counter2
- 19. Parameter Settings for User Entity Instance: PCounter4:counter3
- 20. Parameter Settings for User Entity Instance: PCounter4:counter4
- 21. Parameter Settings for User Entity Instance: PCounter4:counter5
- 22. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod0
- 23. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod1
- 24. Port Connectivity Checks: "DisplayCntrl:DisplayCntrl"
- 25. Port Connectivity Checks: "Mux:Mux"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
+  8. State Machine - |ChronometerTop|s_currentState
+  9. State Machine - |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: ClkDividerN:clkDiv
+ 15. Parameter Settings for User Entity Instance: DebounceUnit:deb1
+ 16. Parameter Settings for User Entity Instance: DebounceUnit:deb2
+ 17. Parameter Settings for User Entity Instance: SyncGen:SyncGen
+ 18. Parameter Settings for User Entity Instance: PCounter4:counter0
+ 19. Parameter Settings for User Entity Instance: PCounter4:counter1
+ 20. Parameter Settings for User Entity Instance: PCounter4:counter2
+ 21. Parameter Settings for User Entity Instance: PCounter4:counter3
+ 22. Parameter Settings for User Entity Instance: PCounter4:counter4
+ 23. Parameter Settings for User Entity Instance: PCounter4:counter5
+ 24. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod0
+ 25. Parameter Settings for Inferred Entity Instance: SyncGen:SyncGen|lpm_divide:Mod1
+ 26. Port Connectivity Checks: "DisplayCntrl:DisplayCntrl"
+ 27. Port Connectivity Checks: "Mux:Mux"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
 
 
 
@@ -59,15 +61,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 15 15:07:01 2021       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun 15 15:45:13 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
 ; Top-level Entity Name              ; ChronometerTop                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,485                                       ;
-;     Total combinational functions  ; 1,433                                       ;
-;     Dedicated logic registers      ; 175                                         ;
-; Total registers                    ; 175                                         ;
+; Total logic elements               ; 1,494                                       ;
+;     Total combinational functions  ; 1,442                                       ;
+;     Dedicated logic registers      ; 177                                         ;
+; Total registers                    ; 177                                         ;
 ; Total pins                         ; 97                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -214,20 +216,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,485          ;
+; Estimated Total logic elements              ; 1,494          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1433           ;
+; Total combinational functions               ; 1442           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 441            ;
-;     -- 3 input functions                    ; 365            ;
-;     -- <=2 input functions                  ; 627            ;
+;     -- 4 input functions                    ; 442            ;
+;     -- 3 input functions                    ; 369            ;
+;     -- <=2 input functions                  ; 631            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 1037           ;
+;     -- normal mode                          ; 1046           ;
 ;     -- arithmetic mode                      ; 396            ;
 ;                                             ;                ;
-; Total registers                             ; 175            ;
-;     -- Dedicated logic registers            ; 175            ;
+; Total registers                             ; 177            ;
+;     -- Dedicated logic registers            ; 177            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 97             ;
@@ -235,8 +237,8 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 175            ;
-; Total fan-out                               ; 4739           ;
+; Maximum fan-out                             ; 177            ;
+; Total fan-out                               ; 4768           ;
 ; Average fan-out                             ; 2.63           ;
 +---------------------------------------------+----------------+
 
@@ -246,19 +248,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |ChronometerTop                           ; 1433 (1)            ; 175 (1)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                                                                                                                 ; ChronometerTop      ; work         ;
+; |ChronometerTop                           ; 1442 (5)            ; 177 (3)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                                                                                                                 ; ChronometerTop      ; work         ;
 ;    |Bin7SegDecoder:segDecoder|            ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Bin7SegDecoder:segDecoder                                                                                       ; Bin7SegDecoder      ; work         ;
 ;    |ClkDividerN:clkDiv|                   ; 40 (40)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|ClkDividerN:clkDiv                                                                                              ; ClkDividerN         ; work         ;
 ;    |DebounceUnit:deb1|                    ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb1                                                                                               ; DebounceUnit        ; work         ;
 ;    |DebounceUnit:deb2|                    ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb2                                                                                               ; DebounceUnit        ; work         ;
-;    |DisplayCntrl:DisplayCntrl|            ; 13 (13)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DisplayCntrl:DisplayCntrl                                                                                       ; DisplayCntrl        ; work         ;
+;    |DisplayCntrl:DisplayCntrl|            ; 14 (14)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DisplayCntrl:DisplayCntrl                                                                                       ; DisplayCntrl        ; work         ;
 ;    |Mux:Mux|                              ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Mux:Mux                                                                                                         ; Mux                 ; work         ;
-;    |PCounter4:counter0|                   ; 11 (11)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter0                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter1|                   ; 9 (9)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter1                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter0|                   ; 14 (14)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter0                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter1|                   ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter1                                                                                              ; PCounter4           ; work         ;
 ;    |PCounter4:counter2|                   ; 9 (9)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter2                                                                                              ; PCounter4           ; work         ;
 ;    |PCounter4:counter3|                   ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter3                                                                                              ; PCounter4           ; work         ;
 ;    |PCounter4:counter4|                   ; 9 (9)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter4                                                                                              ; PCounter4           ; work         ;
-;    |PCounter4:counter5|                   ; 11 (11)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter5                                                                                              ; PCounter4           ; work         ;
+;    |PCounter4:counter5|                   ; 10 (10)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter5                                                                                              ; PCounter4           ; work         ;
 ;    |Reg:reg1|                             ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg1                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg2|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg2                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg3|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg3                                                                                                        ; Reg                 ; work         ;
@@ -267,7 +269,7 @@ refer to the applicable agreement for further details.
 ;    |Reg:reg6|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg6                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg7|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg7                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg8|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg8                                                                                                        ; Reg                 ; work         ;
-;    |SyncGen:SyncGen|                      ; 1153 (59)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen                                                                                                 ; SyncGen             ; work         ;
+;    |SyncGen:SyncGen|                      ; 1154 (60)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen                                                                                                 ; SyncGen             ; work         ;
 ;       |lpm_divide:Mod0|                   ; 484 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_qcm:auto_generated|  ; 484 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod0|lpm_divide_qcm:auto_generated                                                   ; lpm_divide_qcm      ; work         ;
 ;             |sign_div_unsign_fnh:divider| ; 484 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod0|lpm_divide_qcm:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh ; work         ;
@@ -278,6 +280,18 @@ refer to the applicable agreement for further details.
 ;                |alt_u_div_iaf:divider|    ; 610 (610)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod1|lpm_divide_qcm:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_iaf:divider ; alt_u_div_iaf       ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------+
+; State Machine - |ChronometerTop|s_currentState                                           ;
++----------------------+---------------------+----------------------+----------------------+
+; Name                 ; s_currentState.stop ; s_currentState.start ; s_currentState.clear ;
++----------------------+---------------------+----------------------+----------------------+
+; s_currentState.clear ; 0                   ; 0                    ; 0                    ;
+; s_currentState.start ; 0                   ; 1                    ; 1                    ;
+; s_currentState.stop  ; 1                   ; 0                    ; 1                    ;
++----------------------+---------------------+----------------------+----------------------+
 
 
 Encoding Type:  One-Hot
@@ -296,6 +310,17 @@ Encoding Type:  One-Hot
 ; s_currentState.E7   ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                   ;
 ; s_currentState.E8   ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                   ;
 +---------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++----------------------------------------------------+----------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
++----------------------------------------------------+----------------------+------------------------+
+; s_main_counters                                    ; s_currentState.clear ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                      ;                        ;
++----------------------------------------------------+----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------------------------------------------+
@@ -338,12 +363,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 175   ;
+; Total registers                              ; 177   ;
 ; Number of registers using Synchronous Clear  ; 34    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 124   ;
+; Number of registers using Clock Enable       ; 126   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -353,14 +378,14 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter0|s_count[0]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter1|s_count[0]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter2|s_count[0]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter3|s_count[0]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter4|s_count[1]            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter5|s_count[3]            ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb2|s_debounceCnt[7]       ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb1|s_debounceCnt[10]      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter0|s_count[3]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter1|s_count[3]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter2|s_count[2]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter3|s_count[3]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter4|s_count[2]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChronometerTop|PCounter4:counter5|s_count[2]            ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb1|s_debounceCnt[4]       ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb2|s_debounceCnt[18]      ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState ;
 ; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |ChronometerTop|Mux:Mux|dataOut[1]                       ;
 ; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |ChronometerTop|Reg:reg1|dataOut                         ;
@@ -555,24 +580,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 97                          ;
-; cycloneiii_ff         ; 175                         ;
-;     ENA               ; 123                         ;
+; cycloneiii_ff         ; 177                         ;
+;     ENA               ; 125                         ;
 ;     ENA SCLR          ; 1                           ;
 ;     SCLR              ; 33                          ;
 ;     plain             ; 18                          ;
-; cycloneiii_lcell_comb ; 1434                        ;
+; cycloneiii_lcell_comb ; 1443                        ;
 ;     arith             ; 396                         ;
 ;         2 data inputs ; 95                          ;
 ;         3 data inputs ; 301                         ;
-;     normal            ; 1038                        ;
+;     normal            ; 1047                        ;
 ;         0 data inputs ; 20                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 509                         ;
-;         3 data inputs ; 64                          ;
-;         4 data inputs ; 441                         ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 512                         ;
+;         3 data inputs ; 68                          ;
+;         4 data inputs ; 442                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 44.60                       ;
-; Average LUT depth     ; 30.90                       ;
+; Max LUT depth         ; 46.60                       ;
+; Average LUT depth     ; 31.84                       ;
 +-----------------------+-----------------------------+
 
 
@@ -591,7 +616,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Jun 15 15:06:49 2021
+    Info: Processing started: Tue Jun 15 15:45:01 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cronometro -c cronometro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -633,17 +658,19 @@ Info (12021): Found 2 design units, including 1 entities, in source file output_
     Info (12022): Found design unit 1: SyncGen-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 17
     Info (12023): Found entity 1: SyncGen File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 4
 Info (12127): Elaborating entity "ChronometerTop" for the top level hierarchy
+Warning (10631): VHDL Process Statement warning at ChronometerTop.vhd(112): inferring latch(es) for signal or variable "s_main_counters", which holds its previous value in one or more paths through the process File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 112
 Warning (10873): Using initial value X (don't care) for net "LEDR[17..7]" at ChronometerTop.vhd(12) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 12
+Info (10041): Inferred latch for "s_main_counters" at ChronometerTop.vhd(112) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 112
 Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDiv" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 73
 Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 82
 Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb2" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 88
 Info (12129): Elaborating entity "SyncGen" using architecture "A:behavioral" for hierarchy "SyncGen:SyncGen" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 93
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 139
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter3" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 176
-Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 213
-Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 225
-Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 229
-Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 238
+Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 146
+Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter3" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 183
+Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 220
+Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 232
+Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 236
+Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 245
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
@@ -705,13 +732,13 @@ Warning (21074): Design contains 20 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 10
-Info (21057): Implemented 1589 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1598 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 74 output pins
-    Info (21061): Implemented 1492 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 4829 megabytes
-    Info: Processing ended: Tue Jun 15 15:07:01 2021
+    Info (21061): Implemented 1501 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 4827 megabytes
+    Info: Processing ended: Tue Jun 15 15:45:13 2021
     Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:23
 

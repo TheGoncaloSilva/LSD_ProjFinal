@@ -1,4 +1,10 @@
 
+State Machine - |ChronometerTop|s_currentState
+Name s_currentState.stop s_currentState.start s_currentState.clear 
+s_currentState.clear 0 0 0 
+s_currentState.start 0 1 1 
+s_currentState.stop 1 0 1 
+
 State Machine - |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState
 Name s_currentState.E8 s_currentState.E7 s_currentState.E6 s_currentState.E5 s_currentState.E4 s_currentState.E3 s_currentState.E2 s_currentState.E1 s_currentState.INIT 
 s_currentState.INIT 0 0 0 0 0 0 0 0 0 
