@@ -20,18 +20,19 @@ begin
 	sync_proc : process(clk)
 	begin
 		if (rising_edge(clk)) then
-			if (res = '1') then
-				s_currentState <= INIT;
-			else
-				s_currentState <= s_nextState;
+			if(en = '1') then
+				if (res = '1') then
+					s_currentState <= INIT;
+				else
+					s_currentState <= s_nextState;
+				end if;
 			end if;
 		end if;
 	end process;
 
 	comb_proc : process(s_currentState, start, en)
 	begin
-		if(en = '1') then
-			case (s_currentState) is
+		case (s_currentState) is
 			when INIT =>
 				sel <= "000"; -- dúvida em relação a este
 				regSel <= "00000000";
@@ -41,7 +42,7 @@ begin
 				else
 					s_nextState <= INIT;
 				end if;
-				
+					
 			when E1 =>
 				sel <= "000";
 				regSel <= "00000001";
@@ -126,12 +127,6 @@ begin
 				s_nextState <= E1;
 				
 			end case;
-		else
-			sel <= "000";
-			regSel <= "00000000";
-			busy <= '0';
-			s_nextState <= INIT;
-		end if;
 	end process;
 
 end Behavioral;

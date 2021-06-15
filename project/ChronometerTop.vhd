@@ -27,7 +27,6 @@ architecture Behavioral of ChronometerTop is
 	signal s_TC2_3 : std_logic;
 	signal s_TC3_4 : std_logic;
 	signal s_TC4_5 : std_logic;
-	signal s_TC5_6 : std_logic;
 	signal s_TC_final : std_logic;
 
 	-- Fios para o valor final do counter
@@ -53,7 +52,22 @@ architecture Behavioral of ChronometerTop is
 	-- Fio para selecionar o display desejado, valor que vem do decoder
 	signal s_display_sel : std_logic_vector(7 downto 0);
 	
+	-- Fio que sai do componente SyncGen e liga no enable do DisplayCntrl
+	signal s_Display_Clock : std_logic;
+	
+	-- Fio que sai do componente SyncGen e liga no enable do Pcounter4
+	signal s_time_Clock : std_logic;
+	
+	-- Sinais para a FSM que controla o start and stop
+	type TState is (stop, start);
+	signal s_currentState, s_nextState : TState;
+	
+	-- Fio da FSM para os counters
+	signal s_main_counters : std_logic;
 
+	-- Fio da FSM para o DisplayCntrl
+	signal s_main_Display : std_logic;
+	
 begin
 
 	clkDiv : entity work.ClkDividerN(Behavioral)
@@ -72,65 +86,129 @@ begin
 					cleanOut	=> s_start_stop);
 	
 	deb2 : entity work.DebounceUnit(Behavioral)
-		generic map (inPolarity => '1')
 		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
 					dirtyIn	=> SW(0), -- Switch do reset
 					cleanOut	=> s_reset);
+					
+	SyncGen : entity work.SyncGen(Behavioral)
+		generic map(numberSteps	=> 50000000,
+						out0CompVal	=> 500000,
+						out1CompVal	=> 50000)
+		port map(clkIn				=> CLOCK_50,
+					DisplayClock	=>	s_Display_Clock,
+					TimeClock		=> s_Time_Clock);
+
+	Sync_Start_Stop : process(CLOCK_50)
+	begin
+		if (rising_edge(CLOCK_50)) then
+			if (s_reset = '1') then
+				s_currentState <= stop;
+			else
+				s_currentState <= s_nextState;
+			end if;
+		end if;
+	end process;
+
+	Comb_Start_Stop : process(s_currentState, s_start_stop, s_reset)
+	begin
+		case (s_currentState) is					
+			when stop =>
+				s_main_counters <= '0';
+				s_main_Display <= '0';
+				if (s_start_stop = '1') then
+					s_nextState <= start;
+				else
+					s_nextState <= stop;
+				end if;
+				
+			when start =>
+				s_main_counters <= '1';
+				s_main_Display <= '1';
+				if (s_start_stop = '1') then
+					s_nextState <= stop;
+				else
+					s_nextState <= start;
+				end if;
+				
+			when others => -- caso exista outra condição
+				s_nextState <= stop;
+				
+			end case;
+	end process;
+	
+	counter0 : entity work.PCounter4(Behav)
+		generic map (	max => 9,
+							min => 0)
+		port map(clk 		=> CLOCK_50,
+					reset 	=> s_reset,
+					mainEn	=>	s_main_counters,
+					enable	=> s_Time_Clock, -- Start and stop
+					TC			=> s_TC0_1,
+					Q			=> s_Q0);
+					
+					
+--	s_TC1_2 <= s_TC1_2 and s_TC0_1;
+--	s_TC2_3 <= s_TC2_3 and s_TC1_2;
+--	s_TC3_4 <= s_TC3_4 and s_TC2_3;
+--	s_TC4_5 <= s_TC4_5 and s_TC3_4;
+--	s_TC_final <= s_TC_final and s_TC4_5;
 	
 	counter1 : entity work.PCounter4(Behav)
 		generic map (	max => 9,
 							min => 0)
 		port map(clk 		=> CLOCK_50,
-					reset 	=> s_reset,
-					enable	=> s_start_stop, -- Star and stop
-					TC			=> s_TC0_1,
-					Q			=> s_Q0);
-	
-	counter2 : entity work.PCounter4(Behav)
-		generic map (	max => 6,
-							min => 0)
-		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC0_1,
+					mainEn	=>	s_main_counters,
+					enable	=> s_TC0_1 and s_time_Clock,
 					TC			=> s_TC1_2,
 					Q			=> s_Q1);
 					
-	counter3 : entity work.PCounter4(Behav)
-		generic map (	max => 6,
+	counter2 : entity work.PCounter4(Behav)
+		generic map (	max => 9,
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC1_2,
+					mainEn	=>	s_main_counters,
+					enable	=> s_TC1_2 and s_tC0_1 and s_time_Clock,
 					TC			=> s_TC2_3,
 					Q			=> s_Q2);
 					
-	counter4 : entity work.PCounter4(Behav)
-		generic map (	max => 6,
+	counter3 : entity work.PCounter4(Behav)
+		generic map (	max => 5,
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC2_3,
+					mainEn	=>	s_main_counters,
+					enable	=> s_TC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
 					TC			=> s_TC3_4,
 					Q			=> s_Q3);
 					
-	counter5 : entity work.PCounter4(Behav)
-		generic map (	max => 6,
+	counter4 : entity work.PCounter4(Behav)
+		generic map (	max => 9,
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC3_4,
+					mainEn	=>	s_main_counters,
+					enable	=> s_TC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
 					TC			=> s_TC4_5,
 					Q			=> s_Q4);
 					
-	counter6 : entity work.PCounter4(Behav)
-		generic map (	max => 6,
+	counter5 : entity work.PCounter4(Behav)
+		generic map (	max => 5,
 							min => 0)
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
-					enable	=> s_TC4_5,
+					mainEn	=>	s_main_counters,
+					enable	=> s_TC4_5 and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
 					TC			=> s_TC_final,
 					Q			=> s_Q5);
 					
+	LEDR(1) <= s_TC0_1;
+	LEDR(2) <= s_TC1_2;
+	LEDR(3) <= s_TC2_3;
+	LEDR(4) <= s_TC3_4;
+	LEDR(5) <= s_TC4_5;
+	LEDR(6) <= s_TC_final;
 	
 	Mux : entity work.Mux(Behav)
 		port map(dataIn0	=> s_q0,
@@ -139,8 +217,8 @@ begin
 					dataIn3	=> s_q3,
 					dataIn4	=> s_q4,
 					dataIn5	=> s_q5,
-					dataIn6	=> x"E", -- alterar para modo programação com o texto
-					dataIn7	=> x"F", -- alterar para modo programação com o texto
+					dataIn6	=> x"C", -- alterar para modo programação com o texto
+					dataIn7	=> x"D", -- alterar para modo programação com o texto
 					sel	=> s_sel_mux,
 					dataOut	=> s_mux_dec);
 	
@@ -153,8 +231,8 @@ begin
 					res		=> s_reset,
 					sel		=> s_sel_mux,
 					regSel	=> s_sel_reg,
-					en			=> '1',
-					start		=> '1',
+					en			=> s_display_Clock,
+					start		=> s_main_Display,
 					busy		=> open);					
 					
 	reg1: entity work.Reg(Behavioral)

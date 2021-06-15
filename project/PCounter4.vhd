@@ -11,6 +11,7 @@ entity PCounter4 is
 				min : integer := 0);
    port(clk    : in std_logic;
 	     enable : in std_logic;
+		  mainEn	: in std_logic;
 	     reset  : in std_logic;
 		  TC     : out std_logic;
 		  Q      : out std_logic_vector(3 downto 0));
@@ -27,7 +28,7 @@ begin
 			   s_count <= "0000";
 				TC <= '0';
 			else
-			   if(enable = '1') then
+			   if(enable = '1' and mainEn = '1') then
 				   if(to_integer(s_count) = max) then
 					   s_count <= "0000";
 						TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Jun 14 18:07:12 2021
+Analysis & Synthesis Status : Successful - Tue Jun 15 15:07:01 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : cronometro
-Top-level Entity Name : Debouncer
+Top-level Entity Name : ChronometerTop
 Family : Cyclone IV E
-Total logic elements : 1
-    Total combinational functions : 0
-    Dedicated logic registers : 1
-Total registers : 1
-Total pins : 3
+Total logic elements : 1,485
+    Total combinational functions : 1,433
+    Dedicated logic registers : 175
+Total registers : 175
+Total pins : 97
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
