@@ -62,6 +62,13 @@ architecture Behavioral of ChronometerTop is
 	-- Sinais para a FSM que controla o start and stop
 	type TState is (stop, start, clearStop, clearStart);
 	signal s_currentState, s_nextState : TState;
+
+	-- Sinais para a FSM que controla o mode
+	type TState_m is (growing, decreasing);
+	signal s_currentState_m, s_nextState_m : TState_m;
+	
+	-- Fio que liga da FSM que controla o mode
+	signal s_mode_final : std_logic;
 	
 	-- Fio da FSM para os counters
 	signal s_main_counters : std_logic;
@@ -102,6 +109,43 @@ begin
 					dirtyIn	=> SW(1), -- Switch do reset
 					cleanOut	=> s_mode);
 					
+	Sync_Mode : process(CLOCK_50)
+	begin
+		if (rising_edge(CLOCK_50)) then
+			s_currentState_m <= s_nextState_m;
+		end if;
+	end process;
+
+	Comb_Mode : process(s_currentState_m, s_mode)
+	begin
+		case (s_currentState_m) is
+			when growing =>
+				s_mode_final <= '0';
+				LEDR(15) <= '1';
+				LEDR(14) <= '0';
+				if (s_mode = '1') then
+					s_nextState_m <= decreasing;
+				else
+					s_nextState_m <= growing;
+				end if;
+				
+			when decreasing =>
+				s_mode_final <= '1';
+				LEDR(15) <= '0';
+				LEDR(14) <= '1';
+				if (s_mode = '1') then
+					s_nextState_m <= growing;
+				else
+					s_nextState_m <= decreasing;
+				end if;			
+			when others => -- caso exista outra condição
+				s_nextState_m <= growing;
+				LEDR(15) <= '0';
+				LEDR(14) <= '0';
+				
+			end case;
+	end process;
+					
 	SyncGen : entity work.SyncGen(Behavioral)
 		generic map(numberSteps	=> 50000000,
 						out0CompVal	=> 500000,
@@ -115,11 +159,18 @@ begin
 		if (rising_edge(CLOCK_50)) then
 			if (s_reset = '1') then
 				if(s_currentState = start or s_currentState = clearStart) then
-					s_currentState <= clearstart;
+					LEDR(10) <= '1';
+					if(s_mode_final = '1') then
+						s_currentState <= clearstop;
+					else
+						s_currentState <= clearstart;
+					end if;
 				else
+					LEDR(10) <= '0';
 					s_currentState <= clearStop;
 				end if;
 			else
+				LEDR(10) <= '0';
 				s_currentState <= s_nextState;
 			end if;
 		end if;
@@ -176,7 +227,7 @@ begin
 					reset 	=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_Time_Clock, -- Start and stop
-					mode     => SW(1), 
+					mode     => s_mode_final,
 					TC			=> s_TC0_1,
 					Q			=> s_Q0);
 					
@@ -194,7 +245,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC0_1 and s_time_Clock,
-					mode     => sw(1),
+					mode     => s_mode_final,
 					TC			=> s_TC1_2,
 					Q			=> s_Q1);
 					
@@ -205,7 +256,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC1_2 and s_tC0_1 and s_time_Clock,
-					mode     => sw(1),
+					mode     => s_mode_final,
 					TC			=> s_TC2_3,
 					Q			=> s_Q2);
 					
@@ -216,7 +267,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
-					mode     => sw(1),
+					mode     => s_mode_final,
 					TC			=> s_TC3_4,
 					Q			=> s_Q3);
 					
@@ -227,7 +278,7 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
-					mode     => sw(1),
+					mode     => s_mode_final,
 					TC			=> s_TC4_5,
 					Q			=> s_Q4);
 					
@@ -238,18 +289,18 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC4_5 and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
-					mode     => sw(1),
+					mode     => s_mode_final,
 					TC			=> s_TC_final,
 					Q			=> s_Q5);
 					
 	process(S_Q0, S_Q1, S_Q2, S_Q3, S_Q4, S_Q5)
     begin
        if(S_Q0 = "0000" and S_Q1 = "0000" and S_Q2 = "0000" and S_Q3= "0000" and
-              S_Q4 = "0000" and S_Q5 = "0000" and SW(1) = '1') then
-           s_max_value <= '1';
-        --elsif(S_Q0 = "1001" and S_Q1 = "1001" and S_Q2 = "1001" and S_Q3= "0101" and
-        --      S_Q4 = "1001" and S_Q5 = "0101" and SW(1) = '0') then 
-        --    s_max_value <= '1';
+              S_Q4 = "0000" and S_Q5 = "0000" and s_mode_final = '1') then
+				s_max_value <= '1';
+        elsif(S_Q0 = "1001" and S_Q1 = "1001" and S_Q2 = "1001" and S_Q3= "0101" and
+             S_Q4 = "1001" and S_Q5 = "0101" and s_mode_final = '0') then 
+				s_max_value <= '1';
         else
             s_max_value <= '0';
         end if;
