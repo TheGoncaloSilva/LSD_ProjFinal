@@ -114,12 +114,11 @@ begin
 	begin
 		if (rising_edge(CLOCK_50)) then
 			if (s_reset = '1') then
-				if(s_currentState = start) then
+				if(s_currentState = start or s_currentState = clearStart) then
 					s_currentState <= clearstart;
 				else
 					s_currentState <= clearStop;
 				end if;
-
 			else
 				s_currentState <= s_nextState;
 			end if;
@@ -143,10 +142,8 @@ begin
 				s_main_Display <= '1';
 				if (s_start_stop = '1' or s_max_value = '1') then
 					s_nextState <= stop;
-					LEDR(14) <= '1';
 				else
 					s_nextState <= start;
-					LEDR(14) <= '0';
 				end if;
 				
 			when clearStart =>
@@ -155,7 +152,7 @@ begin
 				if (s_start_stop = '1') then
 					s_nextState <= stop;
 				else
-					s_nextState <= start;
+					s_nextState <= clearStart;
 				end if;
 			when clearStop =>
 				s_main_counters <= '0';
@@ -163,7 +160,7 @@ begin
 				if (s_start_stop = '1') then
 					s_nextState <= start;
 				else
-					s_nextState <= clear;
+					s_nextState <= clearStop;
 				end if;		
 							
 			when others => -- caso exista outra condição
@@ -246,14 +243,17 @@ begin
 					Q			=> s_Q5);
 					
 	process(S_Q0, S_Q1, S_Q2, S_Q3, S_Q4, S_Q5)
-	begin
-	   if((unsigned(S_Q0) + unsigned(S_Q1) + unsigned(S_Q2) + unsigned(S_Q3) + unsigned(S_Q4) + unsigned(S_Q5) = 0) and SW(1) = '1') then
-		   s_max_value <= '1';
-			LEDR(15) <= '1';
-		else			s_max_value <= '0';
-			LEDR(15) <= '0';
-		end if;
-	end process;
+    begin
+       if(S_Q0 = "0000" and S_Q1 = "0000" and S_Q2 = "0000" and S_Q3= "0000" and
+              S_Q4 = "0000" and S_Q5 = "0000" and SW(1) = '1') then
+           s_max_value <= '1';
+        --elsif(S_Q0 = "1001" and S_Q1 = "1001" and S_Q2 = "1001" and S_Q3= "0101" and
+        --      S_Q4 = "1001" and S_Q5 = "0101" and SW(1) = '0') then 
+        --    s_max_value <= '1';
+        else
+            s_max_value <= '0';
+        end if;
+    end process;
 					
 	LEDR(1) <= s_TC0_1;
 	LEDR(2) <= s_TC1_2;
