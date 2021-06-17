@@ -26,13 +26,13 @@ begin
 	begin
 	   if(rising_edge(clk)) then
 		   if(reset = '1') then
-			   s_count <= "0000";
+			   s_count <= to_unsigned(min, 4);
 				TC <= '0';
 			else
 			   if(enable = '1' and mainEn = '1') then
 				   if(mode = '0') then					   
 						if(to_integer(s_count) = max) then
-							s_count <= "0000";
+							s_count <= to_unsigned(min, 4);
 							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
 						else
 							s_count <= s_count + 1;

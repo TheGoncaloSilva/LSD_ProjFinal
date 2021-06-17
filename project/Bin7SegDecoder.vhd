@@ -21,10 +21,10 @@ begin
 					"1111000" when (binInput = "0111") else --7
 					"0000000" when (binInput = "1000") else --8
 					"0010000" when (binInput = "1001") else --9
-					"0001000" when (binInput = "1010") else --A
-					"0000011" when (binInput = "1011") else --b
-					"0101011" when (binInput = "1100") else --C - O
-					"0100011" when (binInput = "1101") else --D - N
+					"0101111" when (binInput = "1010") else --A -> r
+					"0111111" when (binInput = "1011") else --b -> -
+					"1110111" when (binInput = "1100") else --C -> _
+					"0001100" when (binInput = "1101") else --D -> P
 					"0000110" when (binInput = "1110") else --E
 					"0001110" when (binInput = "1111") else --F
 					"1000000"; --0

@@ -58,7 +58,6 @@ set_global_assignment -name VHDL_FILE DebounceUnit.vhd
 set_global_assignment -name VHDL_FILE ChronometerTop.vhd
 set_global_assignment -name VHDL_FILE DisplayCntrl.vhd
 set_global_assignment -name VHDL_FILE ClkDividerN.vhd
-set_global_assignment -name VHDL_FILE Decoder3_8.vhd
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_location_assignment PIN_Y2 -to CLOCK_50
@@ -585,13 +584,10 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE PCounter4.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE ChronometerTop.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Mux.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Bin7SegDecoder.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Decoder3_8.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Reg.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE ClkDividerN.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE DebounceUnit.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE PulseGeneratorN.vwf
-set_global_assignment -name VHDL_FILE Debouncer.vhd
-set_global_assignment -name VECTOR_WAVEFORM_FILE Debouncer.vwf
 set_global_assignment -name VHDL_FILE output_files/SyncGen.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top

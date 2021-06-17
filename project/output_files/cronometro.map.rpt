@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cronometro
-Wed Jun 16 18:53:45 2021
+Thu Jun 17 17:29:28 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -61,7 +61,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 16 18:53:45 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 17 17:29:28 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
 ; Top-level Entity Name              ; ChronometerTop                              ;
@@ -220,9 +220,9 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Total combinational functions               ; 1544           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 460            ;
-;     -- 3 input functions                    ; 407            ;
-;     -- <=2 input functions                  ; 677            ;
+;     -- 4 input functions                    ; 463            ;
+;     -- 3 input functions                    ; 402            ;
+;     -- <=2 input functions                  ; 679            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
 ;     -- normal mode                          ; 1108           ;
@@ -238,7 +238,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 206            ;
-; Total fan-out                               ; 5129           ;
+; Total fan-out                               ; 5130           ;
 ; Average fan-out                             ; 2.64           ;
 +---------------------------------------------+----------------+
 
@@ -248,14 +248,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |ChronometerTop                           ; 1544 (22)           ; 206 (6)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                                                                                                                 ; ChronometerTop      ; work         ;
+; |ChronometerTop                           ; 1544 (23)           ; 206 (6)                   ; 0           ; 0            ; 0       ; 0         ; 97   ; 0            ; |ChronometerTop                                                                                                                 ; ChronometerTop      ; work         ;
 ;    |Bin7SegDecoder:segDecoder|            ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Bin7SegDecoder:segDecoder                                                                                       ; Bin7SegDecoder      ; work         ;
 ;    |ClkDividerN:clkDiv|                   ; 40 (40)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|ClkDividerN:clkDiv                                                                                              ; ClkDividerN         ; work         ;
 ;    |DebounceUnit:deb1|                    ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb1                                                                                               ; DebounceUnit        ; work         ;
-;    |DebounceUnit:deb2|                    ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb2                                                                                               ; DebounceUnit        ; work         ;
+;    |DebounceUnit:deb2|                    ; 66 (66)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb2                                                                                               ; DebounceUnit        ; work         ;
 ;    |DebounceUnit:deb3|                    ; 66 (66)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DebounceUnit:deb3                                                                                               ; DebounceUnit        ; work         ;
 ;    |DisplayCntrl:DisplayCntrl|            ; 14 (14)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|DisplayCntrl:DisplayCntrl                                                                                       ; DisplayCntrl        ; work         ;
-;    |Mux:Mux|                              ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Mux:Mux                                                                                                         ; Mux                 ; work         ;
+;    |Mux:Mux|                              ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Mux:Mux                                                                                                         ; Mux                 ; work         ;
 ;    |PCounter4:counter0|                   ; 15 (15)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter0                                                                                              ; PCounter4           ; work         ;
 ;    |PCounter4:counter1|                   ; 12 (12)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter1                                                                                              ; PCounter4           ; work         ;
 ;    |PCounter4:counter2|                   ; 12 (12)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|PCounter4:counter2                                                                                              ; PCounter4           ; work         ;
@@ -270,7 +270,7 @@ refer to the applicable agreement for further details.
 ;    |Reg:reg6|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg6                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg7|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg7                                                                                                        ; Reg                 ; work         ;
 ;    |Reg:reg8|                             ; 0 (0)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|Reg:reg8                                                                                                        ; Reg                 ; work         ;
-;    |SyncGen:SyncGen|                      ; 1157 (63)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen                                                                                                 ; SyncGen             ; work         ;
+;    |SyncGen:SyncGen|                      ; 1154 (60)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen                                                                                                 ; SyncGen             ; work         ;
 ;       |lpm_divide:Mod0|                   ; 484 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
 ;          |lpm_divide_qcm:auto_generated|  ; 484 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod0|lpm_divide_qcm:auto_generated                                                   ; lpm_divide_qcm      ; work         ;
 ;             |sign_div_unsign_fnh:divider| ; 484 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChronometerTop|SyncGen:SyncGen|lpm_divide:Mod0|lpm_divide_qcm:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh ; work         ;
@@ -385,7 +385,7 @@ Encoding Type:  One-Hot
 ; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb2|s_debounceCnt[21]      ;
 ; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |ChronometerTop|DebounceUnit:deb3|s_debounceCnt[17]      ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |ChronometerTop|Mux:Mux|dataOut[1]                       ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |ChronometerTop|Mux:Mux|dataOut[2]                       ;
 ; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; No         ; |ChronometerTop|Reg:reg1|dataOut                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 
@@ -572,17 +572,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------+
-; Port Connectivity Checks: "Mux:Mux"             ;
-+---------------+-------+----------+--------------+
-; Port          ; Type  ; Severity ; Details      ;
-+---------------+-------+----------+--------------+
-; datain6[3..2] ; Input ; Info     ; Stuck at VCC ;
-; datain6[1..0] ; Input ; Info     ; Stuck at GND ;
-; datain7[3..2] ; Input ; Info     ; Stuck at VCC ;
-; datain7[1]    ; Input ; Info     ; Stuck at GND ;
-; datain7[0]    ; Input ; Info     ; Stuck at VCC ;
-+---------------+-------+----------+--------------+
++----------------------------------------------+
+; Port Connectivity Checks: "Mux:Mux"          ;
++------------+-------+----------+--------------+
+; Port       ; Type  ; Severity ; Details      ;
++------------+-------+----------+--------------+
+; datain6[3] ; Input ; Info     ; Stuck at VCC ;
+; datain7[3] ; Input ; Info     ; Stuck at VCC ;
+; datain7[2] ; Input ; Info     ; Stuck at GND ;
+; datain7[1] ; Input ; Info     ; Stuck at VCC ;
+; datain7[0] ; Input ; Info     ; Stuck at GND ;
++------------+-------+----------+--------------+
 
 
 +-----------------------------------------------------+
@@ -603,12 +603,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     normal            ; 1110                        ;
 ;         0 data inputs ; 20                          ;
 ;         1 data inputs ; 12                          ;
-;         2 data inputs ; 524                         ;
-;         3 data inputs ; 94                          ;
-;         4 data inputs ; 460                         ;
+;         2 data inputs ; 526                         ;
+;         3 data inputs ; 89                          ;
+;         4 data inputs ; 463                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 46.60                       ;
-; Average LUT depth     ; 29.65                       ;
+; Max LUT depth         ; 45.60                       ;
+; Average LUT depth     ; 29.24                       ;
 +-----------------------+-----------------------------+
 
 
@@ -627,7 +627,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Jun 16 18:53:32 2021
+    Info: Processing started: Thu Jun 17 17:29:16 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cronometro -c cronometro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -656,35 +656,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file display
 Info (12021): Found 2 design units, including 1 entities, in source file clkdividern.vhd
     Info (12022): Found design unit 1: ClkDividerN-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd Line: 14
     Info (12023): Found entity 1: ClkDividerN File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ClkDividerN.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file decoder3_8.vhd
-    Info (12022): Found design unit 1: Decoder3_8-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Decoder3_8.vhd Line: 13
-    Info (12023): Found entity 1: Decoder3_8 File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Decoder3_8.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
     Info (12022): Found design unit 1: Reg-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd Line: 15
     Info (12023): Found entity 1: Reg File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Reg.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file debouncer.vhd
-    Info (12022): Found design unit 1: Debouncer-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Debouncer.vhd Line: 16
-    Info (12023): Found entity 1: Debouncer File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/Debouncer.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file output_files/syncgen.vhd
     Info (12022): Found design unit 1: SyncGen-Behavioral File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 17
     Info (12023): Found entity 1: SyncGen File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 4
 Info (12127): Elaborating entity "ChronometerTop" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(194): signal "s_max_value" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 194
-Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(299): signal "s_mode_final" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 299
-Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(302): signal "s_mode_final" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 302
+Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(198): signal "s_max_value" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(303): signal "s_mode_final" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 303
+Warning (10492): VHDL Process Statement warning at ChronometerTop.vhd(306): signal "s_mode_final" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 306
 Warning (10873): Using initial value X (don't care) for net "LEDR[17..16]" at ChronometerTop.vhd(13) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
 Warning (10873): Using initial value X (don't care) for net "LEDR[13..11]" at ChronometerTop.vhd(13) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
 Warning (10873): Using initial value X (don't care) for net "LEDR[9..7]" at ChronometerTop.vhd(13) File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 13
-Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDiv" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 87
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 96
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb2" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 102
-Info (12129): Elaborating entity "SyncGen" using architecture "A:behavioral" for hierarchy "SyncGen:SyncGen" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 149
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 223
-Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter3" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 263
-Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 316
-Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 328
-Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 332
-Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 341
+Info (12129): Elaborating entity "ClkDividerN" using architecture "A:behavioral" for hierarchy "ClkDividerN:clkDiv" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 91
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 100
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:deb2" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 106
+Info (12129): Elaborating entity "SyncGen" using architecture "A:behavioral" for hierarchy "SyncGen:SyncGen" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 153
+Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 227
+Info (12129): Elaborating entity "PCounter4" using architecture "A:behav" for hierarchy "PCounter4:counter3" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 267
+Info (12129): Elaborating entity "Mux" using architecture "A:behav" for hierarchy "Mux:Mux" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 330
+Info (12129): Elaborating entity "Bin7SegDecoder" using architecture "A:behavioral" for hierarchy "Bin7SegDecoder:segDecoder" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 342
+Info (12129): Elaborating entity "DisplayCntrl" using architecture "A:behavioral" for hierarchy "DisplayCntrl:DisplayCntrl" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 346
+Info (12129): Elaborating entity "Reg" using architecture "A:behavioral" for hierarchy "Reg:reg1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/ChronometerTop.vhd Line: 355
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod0" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 35
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SyncGen:SyncGen|Mod1" File: C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project/output_files/SyncGen.vhd Line: 38
@@ -747,9 +741,9 @@ Info (21057): Implemented 1702 device resources after synthesis - the final reso
     Info (21059): Implemented 74 output pins
     Info (21061): Implemented 1605 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 4831 megabytes
-    Info: Processing ended: Wed Jun 16 18:53:45 2021
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4824 megabytes
+    Info: Processing ended: Thu Jun 17 17:29:28 2021
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:24
 
 

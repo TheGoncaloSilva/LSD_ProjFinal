@@ -10,7 +10,7 @@ entity ChronometerTop is
 			SW  		: in std_logic_vector(17 downto 0);
 			KEY 		: in std_logic_vector(3 downto 0);
 			HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7 : out std_logic_vector(6 downto 0);
-			LEDR		: out std_logic_vector(17 downto 0)); -- saídas apenas para testes necessários no momento
+			LEDR		: out std_logic_vector(17 downto 0));
 end ChronometerTop;
 
 architecture Behavioral of ChronometerTop is
@@ -47,7 +47,7 @@ architecture Behavioral of ChronometerTop is
 	-- Fio para que sai do Bin7SegDecoder e é usado no RegisterN
 	signal s_sel_reg : std_logic_vector(7 downto 0);
 	
-	-- Fio proveniente do DisplayCntrl para conectar ao decoder de 3 para 8, de forma a ligar os displays e para ligar ao multiplexador
+	-- Fio proveniente do DisplayCntrl para conectar ao multiplexer e escoher os displays com valores
 	signal s_sel_mux : std_logic_vector(2 downto 0);
 	
 	-- Fio para selecionar o display desejado, valor que vem do decoder
@@ -81,6 +81,10 @@ architecture Behavioral of ChronometerTop is
 	
 	-- Fio que valor máximo ou mínimo do cronómetro(00:00:00 ou 99:59:99)
 	signal s_max_value : std_logic;
+	
+	-- Fios que ligam ao multiplexer e que têm o tipo de estado de contagem ou de programação
+	signal s_mode_mux1 : std_logic_vector(3 downto 0);
+	signal s_mode_mux2 : std_logic_vector(3 downto 0);
 	
 begin
 
@@ -294,17 +298,17 @@ begin
 					Q			=> s_Q5);
 					
 	process(S_Q0, S_Q1, S_Q2, S_Q3, S_Q4, S_Q5)
-    begin
-       if(S_Q0 = "0000" and S_Q1 = "0000" and S_Q2 = "0000" and S_Q3= "0000" and
+		begin
+			if(S_Q0 = "0000" and S_Q1 = "0000" and S_Q2 = "0000" and S_Q3= "0000" and
               S_Q4 = "0000" and S_Q5 = "0000" and s_mode_final = '1') then
 				s_max_value <= '1';
-        elsif(S_Q0 = "1001" and S_Q1 = "1001" and S_Q2 = "1001" and S_Q3= "0101" and
+			elsif(S_Q0 = "1001" and S_Q1 = "1001" and S_Q2 = "1001" and S_Q3= "0101" and
              S_Q4 = "1001" and S_Q5 = "0101" and s_mode_final = '0') then 
 				s_max_value <= '1';
-        else
+			else
             s_max_value <= '0';
-        end if;
-    end process;
+			end if;
+	end process;
 					
 	LEDR(1) <= s_TC0_1;
 	LEDR(2) <= s_TC1_2;
@@ -313,6 +317,16 @@ begin
 	LEDR(5) <= s_TC4_5;
 	LEDR(6) <= s_TC_final;
 	
+	process(s_mode_final)
+	begin
+		s_mode_mux2 <= x"A";
+		if(s_mode_final = '1') then
+			s_mode_mux1 <= x"B";
+		else
+			s_mode_mux1 <= x"C";
+		end if;
+	end process;
+	
 	Mux : entity work.Mux(Behav)
 		port map(dataIn0	=> s_q0,
 					dataIn1	=> s_q1,
@@ -320,8 +334,8 @@ begin
 					dataIn3	=> s_q3,
 					dataIn4	=> s_q4,
 					dataIn5	=> s_q5,
-					dataIn6	=> x"C", -- alterar para modo programação com o texto
-					dataIn7	=> x"D", -- alterar para modo programação com o texto
+					dataIn6	=> s_mode_mux1, -- alterar para modo programação com o texto
+					dataIn7	=> s_mode_mux2, -- alterar para modo programação com o texto
 					sel	=> s_sel_mux,
 					dataOut	=> s_mux_dec);
 	
