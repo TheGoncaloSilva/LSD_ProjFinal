@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
--- DATE "06/17/2021 17:29:57"
+-- DATE "06/17/2021 22:23:10"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -81,15 +81,15 @@ ENTITY 	ChronometerTop IS
 	CLOCK_50 : IN std_logic;
 	SW : IN std_logic_vector(17 DOWNTO 0);
 	KEY : IN std_logic_vector(3 DOWNTO 0);
-	HEX0 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX1 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX2 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX3 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX4 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX5 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX6 : BUFFER std_logic_vector(6 DOWNTO 0);
-	HEX7 : BUFFER std_logic_vector(6 DOWNTO 0);
-	LEDR : BUFFER std_logic_vector(17 DOWNTO 0)
+	HEX0 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX1 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX2 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX3 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX4 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX5 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX6 : OUT std_logic_vector(6 DOWNTO 0);
+	HEX7 : OUT std_logic_vector(6 DOWNTO 0);
+	LEDR : OUT std_logic_vector(17 DOWNTO 0)
 	);
 END ChronometerTop;
 

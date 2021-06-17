@@ -92,12 +92,28 @@ architecture Behavioral of ChronometerTop is
 	-- Fio que liga o DebounceUnit com a key(0) (modo de programação) à FSM ProgCntrl
 	signal s_ProgStart : std_logic;
 	
+	-- Fios que levam o valor de cada key para incrementar e decrementar o valor de cada dígito
+	signal s_digit_up : std_logic; -- Aumentar o valor
+	signal s_digit_down : std_logic; -- Decrementar o valor
+	signal s_digit_final : std_logic_vector(1 downto 0); -- Valor final para "acerto" do digito -- 10 -> up / 01 -> down / 00 -> stop
+	
+	-- Fio do clock divider que leva o valor para piscar cada dígito em modo de programção
+	signal s_blink : std_logic;
+	
+	-- Fio que liga da FSM do modo de programação que ativa o counter selecionado
+	signal s_ProgEn_counter : std_logic_vector(3 downto 0);
+	
 begin
 
 	clkDiv : entity work.ClkDividerN(Behavioral)
 		generic map(divFactor => 50000000) -- Piscar a 1hz
 		port map(clkIn		=> CLOCK_50,
 					clkOut	=> s_seconds);
+					
+	clkBlink : entity work.ClkDividerN(Behavioral) -- clk para piscar cada dígito em modo de programação
+		generic map(divFactor => 25000000) -- Piscar a 2hz
+		port map(clkIn		=> CLOCK_50,
+					clkOut	=> s_blink);
 	
 	LEDR(0) <= s_seconds; --> PASSAGEM DOS SEGUNDOS
 	
@@ -105,26 +121,37 @@ begin
 
 	deb1 : entity work.DebounceUnit(Behavioral)
 		generic map (inPolarity => '0') -- inverter o valor da key
-		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
+		port map(refClk	=> CLOCK_50,
 					dirtyIn	=> KEY(3), -- Key para start and stop
 					cleanOut	=> s_start_stop);
 	
 	deb2 : entity work.DebounceUnit(Behavioral)
-		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
+		port map(refClk	=> CLOCK_50,
 					dirtyIn	=> SW(0), -- Switch do reset
 					cleanOut	=> s_reset);
 				
 	deb3 : entity work.DebounceUnit(Behavioral)
-		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
-					dirtyIn	=> SW(1), -- Switch do reset
+		port map(refClk	=> CLOCK_50,
+					dirtyIn	=> SW(1), -- Switch do modo de contagem
 					cleanOut	=> s_mode);
 					
 	deb4 : entity work.DebounceUnit(Behavioral)
 		generic map (inPolarity => '0') -- inverter o valor da key
-		port map(refClk	=> CLOCK_50, -- s_clock em alternativa para usar o frequency divider
-					dirtyIn	=> KEY(0), -- Key para start and stop
+		port map(refClk	=> CLOCK_50,
+					dirtyIn	=> KEY(0), -- Key para alternar entre os modos de programação
 					cleanOut	=> s_ProgStart);
 					
+	deb5 : entity work.DebounceUnit(Behavioral)
+		generic map (inPolarity => '0') -- inverter o valor da key
+		port map(refClk	=> CLOCK_50,
+					dirtyIn	=> KEY(1), -- Key para incrementar o valor de um dígito
+					cleanOut	=> s_digit_up);
+					
+	deb6 : entity work.DebounceUnit(Behavioral)
+		generic map (inPolarity => '0') -- inverter o valor da key
+		port map(refClk	=> CLOCK_50,
+					dirtyIn	=> KEY(2), -- Key para decrementar o valor de um dígito
+					cleanOut	=> s_digit_down);
 					
 	Sync_Mode : process(CLOCK_50)
 	begin
@@ -166,10 +193,12 @@ begin
 	SyncGen : entity work.SyncGen(Behavioral)
 		generic map(numberSteps	=> 50000000,
 						out0CompVal	=> 500000,
-						out1CompVal	=> 50000)
+						out1CompVal	=> 50000,
+						out2CompVal	=> 50000)
 		port map(clkIn				=> CLOCK_50,
 					DisplayClock	=>	s_Display_Clock,
-					TimeClock		=> s_Time_Clock);
+					TimeClock		=> s_Time_Clock,
+					ProgClock		=> s_progClock);
 
 	Sync_Start_Stop : process(CLOCK_50)
 	begin
@@ -239,12 +268,25 @@ begin
 	
 	ProgMode : entity work.ProgCntrl(Behavioral)
 		port map(clk			=> CLOCK_50,
+					reset			=> s_reset,
 					enable		=> S_ProgClock;
 					ProgStart	=> s_ProgStart;
-					sel			: out  std_logic_vector(2 downto 0);
+					sel			=> s_progEn_counter;
 					OeSel			: out  std_logic_vector(7 downto 0);?????????????
 					ProgBusy		=> s_ProgBusy);
 	
+	
+	process(s_digit_up, s_digit_down)
+	begin
+		if(s_digit_up = '1') then
+			s_digit_final <= "10";
+		elsif(s_digit_down = '1') then
+			s_digit_final <= "01";
+		else
+			s_digit_final <= "00";
+		end if;
+	
+	end process;
 	
 	counter0 : entity work.PCounter4(Behav)
 		generic map (	max => 9,
@@ -253,6 +295,9 @@ begin
 					reset 	=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_Time_Clock, -- Start and stop
+					progEn 	=> '0';
+					ProgBusy	=> s_progBusy,
+					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
 					TC			=> s_TC0_1,
 					Q			=> s_Q0);
@@ -271,6 +316,9 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC0_1 and s_time_Clock,
+					progEn 	=> '0';
+					ProgBusy	=> s_progBusy,
+					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
 					TC			=> s_TC1_2,
 					Q			=> s_Q1);
@@ -282,6 +330,9 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(0);
+					ProgBusy	=> s_progBusy,
+					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
 					TC			=> s_TC2_3,
 					Q			=> s_Q2);
@@ -293,6 +344,9 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(1);
+					ProgBusy	=> s_progBusy,
+					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
 					TC			=> s_TC3_4,
 					Q			=> s_Q3);
@@ -304,6 +358,9 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(2);
+					ProgBusy	=> s_progBusy,
+					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
 					TC			=> s_TC4_5,
 					Q			=> s_Q4);
@@ -315,6 +372,9 @@ begin
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_TC4_5 and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(3);
+					ProgBusy	=> s_progBusy,
+					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
 					TC			=> s_TC_final,
 					Q			=> s_Q5);

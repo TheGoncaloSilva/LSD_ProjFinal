@@ -1,26 +1,30 @@
+-- Projeto número 9 - Cronometro Digital
+-- Gonçalo Silva e Samuel Teixeira
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 entity ProgCntrl is
-	port(clk			: in  std_logic;
-		  enable		: in  std_logic;
-		  ProgStart	: in  std_logic;
-		  sel			: out  std_logic_vector(2 downto 0);
-		  OeSel		: out  std_logic_vector(7 downto 0);?????????????
-		  ProgBusy	: out std_logic);
+	port(	clk			: in  std_logic;
+			rest			: in std_logic;
+			enable		: in  std_logic;
+			ProgStart	: in  std_logic;
+			sel			: out  std_logic_vector(3 downto 0);
+			OeSel			: out  std_logic_vector(7 downto 0);?????????????
+			ProgBusy		: out std_logic);
 end ProgCntrl;
 
 architecture Behavioral of ProgCntrl is
 
-	type TState is (INIT, E1, E2, E3, E4, E5, E6, E7, E8);
+	type TState is (INIT, C5, C4, E3, C2);
 	signal s_currentState, s_nextState : TState;
 
 begin
 	sync_proc : process(clk)
 	begin
 		if (rising_edge(clk)) then
-			if(en = '1') then
-				if (res = '1') then
+			if(enable = '1') then
+				if (reset = '1') then
 					s_currentState <= INIT;
 				else
 					s_currentState <= s_nextState;
@@ -36,97 +40,56 @@ begin
 				sel <= "000"; -- dúvida em relação a este
 				regSel <= "00000000";
 				busy <= '0';
-				if (start = '1') then
-					s_nextState <= E1;
+				if (ProgStart = '1') then
+					s_nextState <= C5;
 				else
 					s_nextState <= INIT;
 				end if;
 					
-			when E1 =>
+			when C5 =>
 				sel <= "000";
 				regSel <= "00000001";
 				busy <= '1'; -- dúvida
-				if (start = '1') then
-					s_nextState <= E2;
+				if (ProgStart = '1') then
+					s_nextState <= C4;
 				else
-					s_nextState <= E1;
+					s_nextState <= C5;
 				end if;
 				
-			when E2 =>
+			when C4 =>
 				sel <= "001";
 				regSel <= "00000010";
 				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E3;
+				if (ProgStart = '1') then
+					s_nextState <= C3;
 				else
-					s_nextState <= E2;
+					s_nextState <= C4;
 				end if;
 				
-			when E3 =>
+			when C3 =>
 				sel <= "010";
 				regSel <= "00000100";
 				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E4;
+				if (ProgStart = '1') then
+					s_nextState <= C2;
 				else
-					s_nextState <= E3;
+					s_nextState <= C3;
 				end if;
 				
-			when E4 =>
+			when C2 =>
 				sel <= "011";
 				regSel <= "00001000";
 				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E5;
+				if (ProgStart = '1') then
+					s_nextState <= INIT;
 				else
-					s_nextState <= E4;
-				end if;
-				
-			when E5 =>
-				sel <= "100";
-				regSel <= "00010000";
-				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E6;
-				else
-					s_nextState <= E5;
-				end if;
-				
-			when E6 =>
-				sel <= "101";
-				regSel <= "00100000";
-				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E7;
-				else
-					s_nextState <= E6;
-				end if;
-				
-			when E7 =>
-				sel <= "110";
-				regSel <= "01000000";
-				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E8;
-				else
-					s_nextState <= E7;
-				end if;
-				
-			when E8 =>
-				sel <= "111";
-				regSel <= "10000000";
-				busy <= '1';
-				if (start = '1') then
-					s_nextState <= E1;
-				else
-					s_nextState <= E8;
+					s_nextState <= C2;
 				end if;
 				
 			when others => -- caso exista outra condição
-				s_nextState <= E1;
+				s_nextState <= INIT;
 				
 			end case;
 	end process;
-
 end Behavioral;
 

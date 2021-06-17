@@ -9,13 +9,16 @@ use ieee.numeric_std.all;
 entity PCounter4 is
    generic(	max : integer := 9;
 				min : integer := 0);
-   port(clk    : in std_logic;
-	     enable : in std_logic;
-		  mainEn	: in std_logic;
-	     reset  : in std_logic;
-		  mode   : in std_logic;
-		  TC     : out std_logic;
-		  Q      : out std_logic_vector(3 downto 0));
+   port(clk    	: in std_logic;
+	     enable 	: in std_logic;
+		  mainEn		: in std_logic;
+		  progEn 	: in std_logic;
+		  ProgBusy	: in std_logic;
+	     reset  	: in std_logic;
+		  mode   	: in std_logic;
+		  UpDown		: in std_logic_vector(1 downto 0); -- 10 -> Up / 01 -> Down / 00 -> Stop
+		  TC     	: out std_logic;
+		  Q      	: out std_logic_vector(3 downto 0));
 
 end PCounter4;
 
@@ -28,6 +31,26 @@ begin
 		   if(reset = '1') then
 			   s_count <= to_unsigned(min, 4);
 				TC <= '0';
+			elsif(progBusy = '1') then
+				if(progEn = '1') then
+					if(upDown = '10') then					   
+						if(to_integer(s_count) = max) then
+							s_count <= to_unsigned(min, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count + 1;
+							TC <= '0';
+						end if;
+					else
+					   if(to_integer(s_count) = min) then
+							s_count <= to_unsigned(max, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count - 1;
+							TC <= '0';
+						end if;      
+					end if;
+				end if;
 			else
 			   if(enable = '1' and mainEn = '1') then
 				   if(mode = '0') then					   

@@ -1,3 +1,6 @@
+-- Projeto número 9 - Cronometro Digital
+-- Gonçalo Silva e Samuel Teixeira
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
