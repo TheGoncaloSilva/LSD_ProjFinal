@@ -41,14 +41,16 @@ begin
 							s_count <= s_count + 1;
 							TC <= '0';
 						end if;
-					else
+					elsif(updown = "01") then
 					   if(to_integer(s_count) = min) then
 							s_count <= to_unsigned(max, 4);
 							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
 						else
 							s_count <= s_count - 1;
 							TC <= '0';
-						end if;      
+						end if; 
+					else
+						TC <= '0';
 					end if;
 				end if;
 			else

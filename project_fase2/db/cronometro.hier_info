@@ -405,7 +405,7 @@ ProgClock <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ChronometerTop|ProgCntrl:ProgMode
-clk => s_currentState~5.DATAIN
+clk => s_currentState~6.DATAIN
 reset => s_currentState.OUTPUTSELECT
 reset => s_currentState.OUTPUTSELECT
 reset => s_currentState.OUTPUTSELECT
@@ -421,20 +421,20 @@ ProgStart => Selector1.IN3
 ProgStart => Selector2.IN3
 ProgStart => Selector3.IN3
 ProgStart => Selector4.IN3
-ProgStart => Selector2.IN1
 ProgStart => Selector3.IN1
 ProgStart => Selector4.IN1
+ProgStart => Selector2.IN1
 ProgStart => Selector1.IN1
 ProgStart => Selector0.IN1
 sel[0] <= sel[0].DB_MAX_OUTPUT_PORT_TYPE
 sel[1] <= sel.DB_MAX_OUTPUT_PORT_TYPE
 sel[2] <= sel[2].DB_MAX_OUTPUT_PORT_TYPE
-sel[3] <= sel[3].DB_MAX_OUTPUT_PORT_TYPE
+sel[3] <= <GND>
 OeSel[0] <= <GND>
 OeSel[1] <= <GND>
 OeSel[2] <= <GND>
 OeSel[3] <= <GND>
-ProgBusy <= ProgBusy.DB_MAX_OUTPUT_PORT_TYPE
+ProgBusy <= <VCC>
 
 
 |ChronometerTop|PCounter4:counter0

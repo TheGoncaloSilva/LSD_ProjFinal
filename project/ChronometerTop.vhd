@@ -180,7 +180,7 @@ begin
 		end if;
 	end process;
 
-	Comb_Start_Stop : process(s_currentState, s_start_stop, s_reset)
+	Comb_Start_Stop : process(s_currentState, s_start_stop, s_reset, s_max_value)
 	begin
 		case (s_currentState) is
 			when stop =>
@@ -276,8 +276,8 @@ begin
 					Q			=> s_Q3);
 					
 	counter4 : entity work.PCounter4(Behav)
-		generic map (	max => 9,
-							min => 0)
+		generic map (	max => 9, -- 9
+							min => 1) -- 0
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
@@ -296,8 +296,8 @@ begin
 					mode     => s_mode_final,
 					TC			=> s_TC_final,
 					Q			=> s_Q5);
-					
-	process(S_Q0, S_Q1, S_Q2, S_Q3, S_Q4, S_Q5)
+	
+	process(S_Q0, S_Q1, S_Q2, S_Q3, S_Q4, S_Q5, s_mode_final)
 		begin
 			if(S_Q0 = "0000" and S_Q1 = "0000" and S_Q2 = "0000" and S_Q3= "0000" and
               S_Q4 = "0000" and S_Q5 = "0000" and s_mode_final = '1') then

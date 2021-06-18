@@ -37,9 +37,9 @@ begin
 	begin
 		case (s_currentState) is
 			when INIT =>
-				sel <= "0001";
+				sel <= "0000";
 				OeSel <= "0000"; -- ver este
-				ProgBusy <= '0';
+				ProgBusy <= '1';
 				if (ProgStart = '1') then
 					s_nextState <= C5;
 				else
@@ -47,7 +47,7 @@ begin
 				end if;
 					
 			when C5 =>
-				sel <= "0010";
+				sel <= "0001";
 				OeSel <= "0000"; -- ver este
 				ProgBusy <= '1';
 				if (ProgStart = '1') then
@@ -67,7 +67,7 @@ begin
 				end if;
 				
 			when C3 =>
-				sel <= "0100";
+				sel <= "0010";
 				OeSel <= "0000"; -- ver este
 				ProgBusy <= '1';
 				if (ProgStart = '1') then
@@ -77,7 +77,7 @@ begin
 				end if;
 				
 			when C2 =>
-				sel <= "1000";
+				sel <= "0100";
 				OeSel <= "0000"; -- ver este
 				ProgBusy <= '1';
 				if (ProgStart = '1') then

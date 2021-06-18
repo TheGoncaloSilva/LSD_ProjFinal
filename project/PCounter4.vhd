@@ -31,17 +31,22 @@ begin
 			else
 			   if(enable = '1' and mainEn = '1') then
 				   if(mode = '0') then					   
-						if(to_integer(s_count) = max) then
+						if(to_integer(s_count) = max) then -- or to_integer(s_count) >= 10
 							s_count <= to_unsigned(min, 4);
-							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+							TC <= '1'; --só depois de chegar ao dígito maximo é que o próximo counter muda
 						else
 							s_count <= s_count + 1;
 							TC <= '0';
 						end if;
 					else
 					   if(to_integer(s_count) = min) then
-							s_count <= to_unsigned(max, 4);
-							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+							if(min = 0) then
+								s_count <= to_unsigned(max, 4);
+								TC <= '1'; --só depois de chegar ao dígito minimo é que o próximo counter muda
+							else
+								s_count <= to_unsigned(0, 4);
+								TC <= '0';
+							end if;
 						else
 							s_count <= s_count - 1;
 							TC <= '0';
