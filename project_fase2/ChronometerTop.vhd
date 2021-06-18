@@ -48,7 +48,7 @@ architecture Behavioral of ChronometerTop is
 	signal s_sel_reg : std_logic_vector(7 downto 0);
 	
 	-- Fio proveniente do DisplayCntrl para conectar ao multiplexer e escoher os displays com valores
-	signal s_sel_mux : std_logic_vector(2 downto 0);
+	signal s_sel_mux : std_logic_vector(3 downto 0);
 	
 	-- Fio para selecionar o display desejado, valor que vem do decoder
 	signal s_display_sel : std_logic_vector(7 downto 0);
@@ -58,6 +58,9 @@ architecture Behavioral of ChronometerTop is
 	
 	-- Fio que sai do componente SyncGen e liga no enable do Pcounter4
 	signal s_time_Clock : std_logic;
+	
+	-- Fio que sai do componente SyncGen e liga no ProgCntrl
+	signal s_progClock : std_logic;
 	
 	-- Sinais para a FSM que controla o start and stop
 	type TState is (stop, start, clearStop, clearStart);
@@ -269,12 +272,13 @@ begin
 	ProgMode : entity work.ProgCntrl(Behavioral)
 		port map(clk			=> CLOCK_50,
 					reset			=> s_reset,
-					enable		=> S_ProgClock;
-					ProgStart	=> s_ProgStart;
-					sel			=> s_progEn_counter;
-					OeSel			: out  std_logic_vector(7 downto 0);?????????????
+					enable		=> S_ProgClock,
+					ProgStart	=> s_ProgStart,
+					sel			=> s_progEn_counter,
+					OeSel			=> open,
 					ProgBusy		=> s_ProgBusy);
-	
+					
+	LEDR(9) <= S_progBusy;
 	
 	process(s_digit_up, s_digit_down)
 	begin
@@ -295,7 +299,7 @@ begin
 					reset 	=> s_reset,
 					mainEn	=>	s_main_counters,
 					enable	=> s_Time_Clock, -- Start and stop
-					progEn 	=> '0';
+					progEn 	=> '0',
 					ProgBusy	=> s_progBusy,
 					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
@@ -315,8 +319,8 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC0_1 and s_time_Clock,
-					progEn 	=> '0';
+					enable	=> s_TC0_1,-- and s_time_Clock,
+					progEn 	=> '0',
 					ProgBusy	=> s_progBusy,
 					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
@@ -329,8 +333,8 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC1_2 and s_tC0_1 and s_time_Clock,
-					progEn 	=> s_progEn_counter(0);
+					enable	=> s_TC1_2,-- and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(0),
 					ProgBusy	=> s_progBusy,
 					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
@@ -343,8 +347,8 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
-					progEn 	=> s_progEn_counter(1);
+					enable	=> s_TC2_3,-- and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(1),
 					ProgBusy	=> s_progBusy,
 					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
@@ -357,8 +361,8 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
-					progEn 	=> s_progEn_counter(2);
+					enable	=> s_TC3_4,-- and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(2),
 					ProgBusy	=> s_progBusy,
 					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
@@ -371,8 +375,8 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC4_5 and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
-					progEn 	=> s_progEn_counter(3);
+					enable	=> s_TC4_5,-- and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					progEn 	=> s_progEn_counter(3),
 					ProgBusy	=> s_progBusy,
 					UpDown	=> s_digit_final,
 					mode     => s_mode_final,
@@ -431,14 +435,16 @@ begin
 					decOut_n => s_dec_regN);
 	
 	DisplayCntrl : entity work.DisplayCntrl(Behavioral)
-		port map(clk		=> CLOCK_50,
-					res		=> s_reset,
-					sel		=> s_sel_mux,
-					regSel	=> s_sel_reg,
-					en			=> s_display_Clock,
-					start		=> s_main_Display,
-					busy		=> open);					
-					
+		port map(clk			=> CLOCK_50,
+					res			=> s_reset,
+					sel			=> s_sel_mux,
+					regSel		=> s_sel_reg,
+					ProgBusy		=> s_progBusy,
+					counter_en	=> s_progEn_counter,
+					en				=> s_display_Clock,
+					start			=> s_main_Display,
+					busy			=> open);					
+						
 	reg1: entity work.Reg(Behavioral)
 		port map(clk		=> CLOCK_50,
 					enable	=> s_sel_reg(0),

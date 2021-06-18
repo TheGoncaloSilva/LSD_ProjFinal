@@ -1,4 +1,4 @@
-Fitter Status : Successful - Thu Jun 17 22:22:59 2021
+Fitter Status : Successful - Fri Jun 18 14:15:39 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : cronometro
 Top-level Entity Name : ChronometerTop
@@ -6,7 +6,7 @@ Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
 Total logic elements : 1,599 / 114,480 ( 1 % )
-    Total combinational functions : 1,544 / 114,480 ( 1 % )
+    Total combinational functions : 1,547 / 114,480 ( 1 % )
     Dedicated logic registers : 206 / 114,480 ( < 1 % )
 Total registers : 206
 Total pins : 97 / 529 ( 18 % )

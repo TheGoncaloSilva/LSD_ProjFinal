@@ -6,7 +6,7 @@ entity DisplayCntrl is
 		  res		: in  std_logic;
 		  en		: in  std_logic;
 		  start	: in  std_logic;
-		  sel		: out  std_logic_vector(2 downto 0);
+		  sel		: out  std_logic_vector(3 downto 0);
 		  regSel	: out  std_logic_vector(7 downto 0);
 		  busy	: out std_logic);
 end DisplayCntrl;
@@ -34,7 +34,7 @@ begin
 	begin
 		case (s_currentState) is
 			when INIT =>
-				sel <= "000"; -- dúvida em relação a este
+				sel <= "0000"; -- dúvida em relação a este
 				regSel <= "00000000";
 				busy <= '0';
 				if (start = '1') then
@@ -44,7 +44,7 @@ begin
 				end if;
 					
 			when E1 =>
-				sel <= "000";
+				sel <= "0001";
 				regSel <= "00000001";
 				busy <= '1'; -- dúvida
 				if (start = '1') then
@@ -54,7 +54,7 @@ begin
 				end if;
 				
 			when E2 =>
-				sel <= "001";
+				sel <= "0010";
 				regSel <= "00000010";
 				busy <= '1';
 				if (start = '1') then
@@ -64,7 +64,7 @@ begin
 				end if;
 				
 			when E3 =>
-				sel <= "010";
+				sel <= "0011";
 				regSel <= "00000100";
 				busy <= '1';
 				if (start = '1') then
@@ -74,7 +74,7 @@ begin
 				end if;
 				
 			when E4 =>
-				sel <= "011";
+				sel <= "0100";
 				regSel <= "00001000";
 				busy <= '1';
 				if (start = '1') then
@@ -84,7 +84,7 @@ begin
 				end if;
 				
 			when E5 =>
-				sel <= "100";
+				sel <= "0101";
 				regSel <= "00010000";
 				busy <= '1';
 				if (start = '1') then
@@ -94,7 +94,7 @@ begin
 				end if;
 				
 			when E6 =>
-				sel <= "101";
+				sel <= "0110";
 				regSel <= "00100000";
 				busy <= '1';
 				if (start = '1') then
@@ -104,7 +104,7 @@ begin
 				end if;
 				
 			when E7 =>
-				sel <= "110";
+				sel <= "0111";
 				regSel <= "01000000";
 				busy <= '1';
 				if (start = '1') then
@@ -114,7 +114,7 @@ begin
 				end if;
 				
 			when E8 =>
-				sel <= "111";
+				sel <= "1000";
 				regSel <= "10000000";
 				busy <= '1';
 				if (start = '1') then

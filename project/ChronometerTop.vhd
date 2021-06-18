@@ -48,7 +48,7 @@ architecture Behavioral of ChronometerTop is
 	signal s_sel_reg : std_logic_vector(7 downto 0);
 	
 	-- Fio proveniente do DisplayCntrl para conectar ao multiplexer e escoher os displays com valores
-	signal s_sel_mux : std_logic_vector(2 downto 0);
+	signal s_sel_mux : std_logic_vector(3 downto 0);
 	
 	-- Fio para selecionar o display desejado, valor que vem do decoder
 	signal s_display_sel : std_logic_vector(7 downto 0);
@@ -248,7 +248,7 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC0_1 and s_time_Clock,
+					enable	=> s_TC0_1,-- and s_time_Clock,
 					mode     => s_mode_final,
 					TC			=> s_TC1_2,
 					Q			=> s_Q1);
@@ -259,7 +259,7 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC1_2 and s_tC0_1 and s_time_Clock,
+					enable	=> s_TC1_2,-- and s_tC0_1 and s_time_Clock,
 					mode     => s_mode_final,
 					TC			=> s_TC2_3,
 					Q			=> s_Q2);
@@ -270,7 +270,7 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					enable	=> s_TC2_3,-- and s_tC1_2 and s_tC0_1 and s_time_Clock,
 					mode     => s_mode_final,
 					TC			=> s_TC3_4,
 					Q			=> s_Q3);
@@ -281,7 +281,7 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					enable	=> s_TC3_4,-- and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
 					mode     => s_mode_final,
 					TC			=> s_TC4_5,
 					Q			=> s_Q4);
@@ -292,7 +292,7 @@ begin
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters,
-					enable	=> s_TC4_5 and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
+					enable	=> s_TC4_5,-- and s_tC3_4 and s_tC2_3 and s_tC1_2 and s_tC0_1 and s_time_Clock,
 					mode     => s_mode_final,
 					TC			=> s_TC_final,
 					Q			=> s_Q5);

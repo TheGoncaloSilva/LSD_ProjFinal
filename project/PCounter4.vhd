@@ -47,6 +47,8 @@ begin
 							TC <= '0';
 						end if;      
 					end if;
+				else
+					TC <= '0';
 				end if;
 			end if;
 		end if;

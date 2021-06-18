@@ -33,7 +33,7 @@ begin
 				TC <= '0';
 			elsif(progBusy = '1') then
 				if(progEn = '1') then
-					if(upDown = '10') then					   
+					if(upDown = "10") then					   
 						if(to_integer(s_count) = max) then
 							s_count <= to_unsigned(min, 4);
 							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
@@ -70,6 +70,8 @@ begin
 							TC <= '0';
 						end if;      
 					end if;
+				else
+					TC <= '0';
 				end if;
 			end if;
 		end if;

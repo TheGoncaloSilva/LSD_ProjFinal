@@ -1,5 +1,5 @@
 Flow report for cronometro
-Thu Jun 17 22:23:11 2021
+Fri Jun 18 14:15:50 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Jun 17 22:23:11 2021       ;
+; Flow Status                        ; Successful - Fri Jun 18 14:15:50 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
 ; Top-level Entity Name              ; ChronometerTop                              ;
@@ -48,7 +48,7 @@ refer to the applicable agreement for further details.
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
 ; Total logic elements               ; 1,599 / 114,480 ( 1 % )                     ;
-;     Total combinational functions  ; 1,544 / 114,480 ( 1 % )                     ;
+;     Total combinational functions  ; 1,547 / 114,480 ( 1 % )                     ;
 ;     Dedicated logic registers      ; 206 / 114,480 ( < 1 % )                     ;
 ; Total registers                    ; 206                                         ;
 ; Total pins                         ; 97 / 529 ( 18 % )                           ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/17/2021 22:22:23 ;
+; Start date & time ; 06/18/2021 14:15:10 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cronometro          ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+----------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name    ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+----------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589187.162396494320408         ; --            ; --             ; --             ;
+; COMPILER_SIGNATURE_ID               ; 10995770589187.162402210917288         ; --            ; --             ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --             ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --             ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --             ; eda_simulation ;
@@ -97,12 +97,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 4826 MB             ; 00:00:24                           ;
-; Fitter                    ; 00:00:21     ; 1.0                     ; 5846 MB             ; 00:00:39                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 4684 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.2                     ; 4874 MB             ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4663 MB             ; 00:00:02                           ;
-; Total                     ; 00:00:44     ; --                      ; --                  ; 00:01:11                           ;
+; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 4829 MB             ; 00:00:23                           ;
+; Fitter                    ; 00:00:17     ; 1.0                     ; 5846 MB             ; 00:00:35                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 4682 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.1                     ; 4871 MB             ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4664 MB             ; 00:00:02                           ;
+; Total                     ; 00:00:36     ; --                      ; --                  ; 00:01:06                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

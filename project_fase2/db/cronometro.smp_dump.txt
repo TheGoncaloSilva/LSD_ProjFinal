@@ -7,13 +7,25 @@ s_currentState.clearStop 0 1 0 1
 s_currentState.clearStart 1 0 0 1 
 
 State Machine - |ChronometerTop|DisplayCntrl:DisplayCntrl|s_currentState
-Name s_currentState.E8 s_currentState.E7 s_currentState.E6 s_currentState.E5 s_currentState.E4 s_currentState.E3 s_currentState.E2 s_currentState.E1 s_currentState.INIT 
-s_currentState.INIT 0 0 0 0 0 0 0 0 0 
-s_currentState.E1 0 0 0 0 0 0 0 1 1 
-s_currentState.E2 0 0 0 0 0 0 1 0 1 
-s_currentState.E3 0 0 0 0 0 1 0 0 1 
-s_currentState.E4 0 0 0 0 1 0 0 0 1 
-s_currentState.E5 0 0 0 1 0 0 0 0 1 
-s_currentState.E6 0 0 1 0 0 0 0 0 1 
-s_currentState.E7 0 1 0 0 0 0 0 0 1 
-s_currentState.E8 1 0 0 0 0 0 0 0 1 
+Name s_currentState.Prog4 s_currentState.Prog3 s_currentState.Prog2 s_currentState.INIT s_currentState.E8 s_currentState.E7 s_currentState.E6 s_currentState.E5 s_currentState.E4 s_currentState.E3 s_currentState.E2 s_currentState.E1 s_currentState.Prog1 
+s_currentState.Prog1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+s_currentState.E1 0 0 0 0 0 0 0 0 0 0 0 1 1 
+s_currentState.E2 0 0 0 0 0 0 0 0 0 0 1 0 1 
+s_currentState.E3 0 0 0 0 0 0 0 0 0 1 0 0 1 
+s_currentState.E4 0 0 0 0 0 0 0 0 1 0 0 0 1 
+s_currentState.E5 0 0 0 0 0 0 0 1 0 0 0 0 1 
+s_currentState.E6 0 0 0 0 0 0 1 0 0 0 0 0 1 
+s_currentState.E7 0 0 0 0 0 1 0 0 0 0 0 0 1 
+s_currentState.E8 0 0 0 0 1 0 0 0 0 0 0 0 1 
+s_currentState.INIT 0 0 0 1 0 0 0 0 0 0 0 0 1 
+s_currentState.Prog2 0 0 1 0 0 0 0 0 0 0 0 0 1 
+s_currentState.Prog3 0 1 0 0 0 0 0 0 0 0 0 0 1 
+s_currentState.Prog4 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |ChronometerTop|ProgCntrl:ProgMode|s_currentState
+Name s_currentState.C2 s_currentState.C3 s_currentState.C4 s_currentState.C5 s_currentState.INIT 
+s_currentState.INIT 0 0 0 0 0 
+s_currentState.C5 0 0 0 1 1 
+s_currentState.C4 0 0 1 0 1 
+s_currentState.C3 0 1 0 0 1 
+s_currentState.C2 1 0 0 0 1 
