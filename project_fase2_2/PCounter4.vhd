@@ -1,0 +1,84 @@
+-- Projeto número 9 - Cronometro Digital
+-- Gonçalo Silva e Samuel Teixeira
+-- Counter usado para contar centésimos de segundo, décimos de segundo, unidades de minuto e horas
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity PCounter4 is
+   generic(	max : integer := 9;
+				min : integer := 0);
+   port(clk    	: in std_logic;
+	     enable 	: in std_logic;
+		  mainEn		: in std_logic;
+		  progEn 	: in std_logic;
+		  ProgBusy	: in std_logic;
+	     reset  	: in std_logic;
+		  mode   	: in std_logic;
+		  UpDown		: in std_logic_vector(1 downto 0); -- 10 -> Up / 01 -> Down / 00 -> Stop
+		  TC     	: out std_logic;
+		  Q      	: out std_logic_vector(3 downto 0));
+
+end PCounter4;
+
+architecture Behav of PCounter4 is 
+   signal s_count :unsigned(3 downto 0);
+begin
+   process(clk)
+	begin
+	   if(rising_edge(clk)) then
+		   if(reset = '1') then
+			   s_count <= to_unsigned(min, 4);
+				TC <= '0';
+			elsif(progBusy = '1') then
+				if(progEn = '1') then
+					if(upDown = "10") then					   
+						if(to_integer(s_count) = max) then
+							s_count <= to_unsigned(min, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count + 1;
+							TC <= '0';
+						end if;
+					elsif(updown = "01") then
+					   if(to_integer(s_count) = min) then
+							s_count <= to_unsigned(max, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count - 1;
+							TC <= '0';
+						end if; 
+					else
+						TC <= '0';
+					end if;
+				end if;
+			else
+			   if(enable = '1' and mainEn = '1') then
+				   if(mode = '0') then					   
+						if(to_integer(s_count) = max) then
+							s_count <= to_unsigned(min, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count + 1;
+							TC <= '0';
+						end if;
+					else
+					   if(to_integer(s_count) = min) then
+							s_count <= to_unsigned(max, 4);
+							TC <= '1'; --só depois de chegar ao dígito 9 é que o próximo counter muda
+						else
+							s_count <= s_count - 1;
+							TC <= '0';
+						end if;      
+					end if;
+				else
+					TC <= '0';
+				end if;
+			end if;
+		end if;
+	end process;
+	
+	Q <= std_logic_vector(s_count);
+	
+end Behav;
