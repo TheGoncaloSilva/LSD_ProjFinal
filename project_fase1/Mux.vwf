@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Mux.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Mux.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Mux.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Mux.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/Mux.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/Mux.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/Mux.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/Mux.vwf.vt"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work Mux.vwf.vht
-vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Mux_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work Mux.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Mux_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal Mux_vhd_vec_tst/*
-vcd add -internal Mux_vhd_vec_tst/i1/*
+vcd add -internal Mux_vlg_vec_tst/*
+vcd add -internal Mux_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -23,12 +23,12 @@ quit -f
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work Mux.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax Mux_vhd_vec_tst/i1=cronometro_vhd.sdo -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Mux_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work Mux.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Mux_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal Mux_vhd_vec_tst/*
-vcd add -internal Mux_vhd_vec_tst/i1/*
+vcd add -internal Mux_vlg_vec_tst/*
+vcd add -internal Mux_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -39,7 +39,7 @@ after 2500 simTimestamp
 run -all
 quit -f
 </modelsim_script_timing>
-<hdl_lang>vhdl</hdl_lang>
+<hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
@@ -529,10 +529,20 @@ SIGNAL("sel")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = BUS;
-	WIDTH = 3;
+	WIDTH = 4;
 	LSB_INDEX = 0;
 	DIRECTION = INPUT;
 	PARENT = "";
+}
+
+SIGNAL("sel[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "sel";
 }
 
 SIGNAL("sel[2]")
@@ -889,39 +899,32 @@ TRANSITION_LIST("dataOut[0]")
 	}
 }
 
+TRANSITION_LIST("sel[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 0 FOR 160.0;
+			LEVEL 1 FOR 160.0;
+		}
+		LEVEL 0 FOR 40.0;
+	}
+}
+
 TRANSITION_LIST("sel[2]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
+		NODE
+		{
+			REPEAT = 6;
+			LEVEL 0 FOR 80.0;
+			LEVEL 1 FOR 80.0;
+		}
 		LEVEL 0 FOR 40.0;
 	}
 }
@@ -931,29 +934,13 @@ TRANSITION_LIST("sel[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 100.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 120.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
+		NODE
+		{
+			REPEAT = 12;
+			LEVEL 0 FOR 40.0;
+			LEVEL 1 FOR 40.0;
+		}
 		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 140.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 20.0;
 	}
 }
 
@@ -962,29 +949,12 @@ TRANSITION_LIST("sel[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 140.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 100.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 40.0;
+		NODE
+		{
+			REPEAT = 25;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
 	}
 }
 
@@ -1395,12 +1365,12 @@ DISPLAY_LINE
 	RADIX = Binary;
 	TREE_INDEX = 40;
 	TREE_LEVEL = 0;
-	CHILDREN = 41, 42, 43;
+	CHILDREN = 41, 42, 43, 44;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "sel[2]";
+	CHANNEL = "sel[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 41;
@@ -1410,7 +1380,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "sel[1]";
+	CHANNEL = "sel[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 42;
@@ -1420,7 +1390,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "sel[0]";
+	CHANNEL = "sel[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 43;
@@ -1430,12 +1400,22 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "dataOut";
+	CHANNEL = "sel[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 44;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dataOut";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 45;
 	TREE_LEVEL = 0;
-	CHILDREN = 45, 46, 47, 48;
+	CHILDREN = 46, 47, 48, 49;
 }
 
 DISPLAY_LINE
@@ -1443,9 +1423,9 @@ DISPLAY_LINE
 	CHANNEL = "dataOut[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 45;
+	TREE_INDEX = 46;
 	TREE_LEVEL = 1;
-	PARENT = 44;
+	PARENT = 45;
 }
 
 DISPLAY_LINE
@@ -1453,9 +1433,9 @@ DISPLAY_LINE
 	CHANNEL = "dataOut[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 46;
+	TREE_INDEX = 47;
 	TREE_LEVEL = 1;
-	PARENT = 44;
+	PARENT = 45;
 }
 
 DISPLAY_LINE
@@ -1463,9 +1443,9 @@ DISPLAY_LINE
 	CHANNEL = "dataOut[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 47;
+	TREE_INDEX = 48;
 	TREE_LEVEL = 1;
-	PARENT = 44;
+	PARENT = 45;
 }
 
 DISPLAY_LINE
@@ -1473,9 +1453,9 @@ DISPLAY_LINE
 	CHANNEL = "dataOut[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 48;
+	TREE_INDEX = 49;
 	TREE_LEVEL = 1;
-	PARENT = 44;
+	PARENT = 45;
 }
 
 TIME_BAR

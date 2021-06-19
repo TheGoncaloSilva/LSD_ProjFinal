@@ -272,8 +272,8 @@ begin
 					Q			=> s_Q3);
 					
 	counter4 : entity work.PCounter4(Behav) -- contadores das unidades dos minutos
-		generic map (	max => 9, -- 9 -- valor máximo
-							min => 1) -- 0 -- valor mínimo
+		generic map (	max => 9, -- valor máximo
+							min => 0) -- valor mínimo
 		port map(clk 		=> CLOCK_50,
 					reset		=> s_reset,
 					mainEn	=>	s_main_counters, -- Se o valor máximo foi atingido o contador não decrementa

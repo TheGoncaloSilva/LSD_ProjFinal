@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ClkDividerN.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/ClkDividerN.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/ClkDividerN.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/ClkDividerN.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/ClkDividerN.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/ClkDividerN.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/ClkDividerN.vwf.vt"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work ClkDividerN.vwf.vht
-vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.ClkDividerN_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work ClkDividerN.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.ClkDividerN_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal ClkDividerN_vhd_vec_tst/*
-vcd add -internal ClkDividerN_vhd_vec_tst/i1/*
+vcd add -internal ClkDividerN_vlg_vec_tst/*
+vcd add -internal ClkDividerN_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -20,18 +20,15 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
-
-
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work ClkDividerN.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax ClkDividerN_vhd_vec_tst/i1=cronometro_vhd.sdo -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.ClkDividerN_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work ClkDividerN.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.ClkDividerN_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal ClkDividerN_vhd_vec_tst/*
-vcd add -internal ClkDividerN_vhd_vec_tst/i1/*
+vcd add -internal ClkDividerN_vlg_vec_tst/*
+vcd add -internal ClkDividerN_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -41,11 +38,8 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
-
-
 </modelsim_script_timing>
-<hdl_lang>vhdl</hdl_lang>
+<hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text

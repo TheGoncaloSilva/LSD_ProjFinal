@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PCounter4.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/simulation/qsim/PCounter4.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/PCounter4.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/simulation/qsim/PCounter4.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/ELVerdadeiro/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/PCounter4.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/PCounter4.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/PCounter4.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/PCounter4.vwf.vt"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_fase1/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work PCounter4.vwf.vht
-vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.PCounter4_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work PCounter4.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.PCounter4_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal PCounter4_vhd_vec_tst/*
-vcd add -internal PCounter4_vhd_vec_tst/i1/*
+vcd add -internal PCounter4_vlg_vec_tst/*
+vcd add -internal PCounter4_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -23,12 +23,12 @@ quit -f
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work PCounter4.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax PCounter4_vhd_vec_tst/i1=cronometro_vhd.sdo -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.PCounter4_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work PCounter4.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.PCounter4_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal PCounter4_vhd_vec_tst/*
-vcd add -internal PCounter4_vhd_vec_tst/i1/*
+vcd add -internal PCounter4_vlg_vec_tst/*
+vcd add -internal PCounter4_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -39,7 +39,7 @@ after 2500 simTimestamp
 run -all
 quit -f
 </modelsim_script_timing>
-<hdl_lang>vhdl</hdl_lang>
+<hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
@@ -96,16 +96,6 @@ SIGNAL("enable")
 }
 
 SIGNAL("mainEn")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "";
-}
-
-SIGNAL("mode")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -221,17 +211,6 @@ TRANSITION_LIST("mainEn")
 	}
 }
 
-TRANSITION_LIST("mode")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 410.0;
-		LEVEL 1 FOR 370.0;
-		LEVEL 0 FOR 220.0;
-	}
-}
-
 TRANSITION_LIST("Q[3]")
 {
 	NODE
@@ -319,7 +298,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "mode";
+	CHANNEL = "reset";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
@@ -328,21 +307,12 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "reset";
+	CHANNEL = "Q";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
 	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Q";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 5;
-	TREE_LEVEL = 0;
-	CHILDREN = 6, 7, 8, 9;
+	CHILDREN = 5, 6, 7, 8;
 }
 
 DISPLAY_LINE
@@ -350,9 +320,9 @@ DISPLAY_LINE
 	CHANNEL = "Q[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 6;
+	TREE_INDEX = 5;
 	TREE_LEVEL = 1;
-	PARENT = 5;
+	PARENT = 4;
 }
 
 DISPLAY_LINE
@@ -360,9 +330,9 @@ DISPLAY_LINE
 	CHANNEL = "Q[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 7;
+	TREE_INDEX = 6;
 	TREE_LEVEL = 1;
-	PARENT = 5;
+	PARENT = 4;
 }
 
 DISPLAY_LINE
@@ -370,9 +340,9 @@ DISPLAY_LINE
 	CHANNEL = "Q[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 8;
+	TREE_INDEX = 7;
 	TREE_LEVEL = 1;
-	PARENT = 5;
+	PARENT = 4;
 }
 
 DISPLAY_LINE
@@ -380,9 +350,9 @@ DISPLAY_LINE
 	CHANNEL = "Q[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 9;
+	TREE_INDEX = 8;
 	TREE_LEVEL = 1;
-	PARENT = 5;
+	PARENT = 4;
 }
 
 DISPLAY_LINE
@@ -390,7 +360,7 @@ DISPLAY_LINE
 	CHANNEL = "TC";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 10;
+	TREE_INDEX = 9;
 	TREE_LEVEL = 0;
 }
 
