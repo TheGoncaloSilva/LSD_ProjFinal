@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cronometro
-Sat Jun 19 19:38:26 2021
+Sat Jun 19 22:46:11 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -60,7 +60,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 19 19:38:26 2021       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 19 22:46:11 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; cronometro                                  ;
 ; Top-level Entity Name              ; ChronometerTop                              ;
@@ -594,7 +594,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Jun 19 19:38:13 2021
+    Info: Processing started: Sat Jun 19 22:45:58 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cronometro -c cronometro
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -711,8 +711,8 @@ Info (21057): Implemented 1518 device resources after synthesis - the final reso
     Info (21059): Implemented 74 output pins
     Info (21061): Implemented 1421 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4821 megabytes
-    Info: Processing ended: Sat Jun 19 19:38:26 2021
+    Info: Peak virtual memory: 4823 megabytes
+    Info: Processing ended: Sat Jun 19 22:46:11 2021
     Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:25
 

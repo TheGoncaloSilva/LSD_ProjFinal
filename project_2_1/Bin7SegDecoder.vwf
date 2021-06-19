@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Bin7SegDecoder.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/Bin7SegDecoder.vwf" --testbench_file="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/Bin7SegDecoder.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/samut/Desktop/LSD/PROJECT/LSD_ProjFinal/project/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/Bin7SegDecoder.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/simulation/qsim/Bin7SegDecoder.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off cronometro -c cronometro --vector_source="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/Bin7SegDecoder.vwf" --testbench_file="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/simulation/qsim/Bin7SegDecoder.vwf.vt"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/simulation/qsim/" cronometro -c cronometro</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/simulation/qsim/" cronometro -c cronometro</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work Bin7SegDecoder.vwf.vht
-vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Bin7SegDecoder_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work Bin7SegDecoder.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Bin7SegDecoder_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal Bin7SegDecoder_vhd_vec_tst/*
-vcd add -internal Bin7SegDecoder_vhd_vec_tst/i1/*
+vcd add -internal Bin7SegDecoder_vlg_vec_tst/*
+vcd add -internal Bin7SegDecoder_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -23,12 +23,12 @@ quit -f
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vcom -work work cronometro.vho
-vcom -work work Bin7SegDecoder.vwf.vht
-vsim -novopt -c -t 1ps -sdfmax Bin7SegDecoder_vhd_vec_tst/i1=cronometro_vhd.sdo -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Bin7SegDecoder_vhd_vec_tst
+vlog -work work cronometro.vo
+vlog -work work Bin7SegDecoder.vwf.vt
+vsim -novopt -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Bin7SegDecoder_vlg_vec_tst
 vcd file -direction cronometro.msim.vcd
-vcd add -internal Bin7SegDecoder_vhd_vec_tst/*
-vcd add -internal Bin7SegDecoder_vhd_vec_tst/i1/*
+vcd add -internal Bin7SegDecoder_vlg_vec_tst/*
+vcd add -internal Bin7SegDecoder_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -39,7 +39,7 @@ after 2500 simTimestamp
 run -all
 quit -f
 </modelsim_script_timing>
-<hdl_lang>vhdl</hdl_lang>
+<hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
