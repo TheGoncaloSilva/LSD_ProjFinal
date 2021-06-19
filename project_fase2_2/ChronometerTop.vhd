@@ -306,13 +306,6 @@ begin
 					TC			=> s_TC0_1,
 					Q			=> s_Q0);
 					
-					
---	s_TC1_2 <= s_TC1_2 and s_TC0_1;
---	s_TC2_3 <= s_TC2_3 and s_TC1_2;
---	s_TC3_4 <= s_TC3_4 and s_TC2_3;
---	s_TC4_5 <= s_TC4_5 and s_TC3_4;
---	s_TC_final <= s_TC_final and s_TC4_5;
-	
 	counter1 : entity work.PCounter4(Behav)
 		generic map (	max => 9,
 							min => 0)
@@ -389,7 +382,7 @@ begin
               S_Q4 = "0000" and S_Q5 = "0000" and s_mode_final = '1') then
 				s_max_value <= '1';
 			elsif(S_Q0 = "1001" and S_Q1 = "1001" and S_Q2 = "1001" and S_Q3= "0101" and
-             S_Q4 = "1001" and S_Q5 = "0101" and s_mode_final = '0') then 
+             S_Q4 = "1001" and S_Q5 = "0101" and s_mode_final = '0') then -- ou (S_TC_final = '1' and s_mode_final = '0')
 				s_max_value <= '1';
 			else
             s_max_value <= '0';

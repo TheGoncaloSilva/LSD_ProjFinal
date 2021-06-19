@@ -1,6 +1,5 @@
 |ChronometerTop
 CLOCK_50 => clkdividern:clkDiv.clkIn
-CLOCK_50 => LEDR[10]~reg0.CLK
 CLOCK_50 => s_currentState_m.CLK
 CLOCK_50 => debounceunit:deb1.refClk
 CLOCK_50 => debounceunit:deb2.refClk
@@ -101,21 +100,21 @@ HEX7[4] <= reg:reg8.dataOut[4]
 HEX7[5] <= reg:reg8.dataOut[5]
 HEX7[6] <= reg:reg8.dataOut[6]
 LEDR[0] <= clkdividern:clkDiv.clkOut
-LEDR[1] <= pcounter4:counter0.TC
-LEDR[2] <= pcounter4:counter1.TC
-LEDR[3] <= pcounter4:counter2.TC
-LEDR[4] <= pcounter4:counter3.TC
-LEDR[5] <= pcounter4:counter4.TC
-LEDR[6] <= pcounter4:counter5.TC
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
 LEDR[7] <= <GND>
 LEDR[8] <= <GND>
 LEDR[9] <= <GND>
-LEDR[10] <= LEDR[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[10] <= <GND>
 LEDR[11] <= <GND>
 LEDR[12] <= <GND>
 LEDR[13] <= <GND>
-LEDR[14] <= s_currentState_m.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[15] <= s_currentState_m.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[14] <= <GND>
+LEDR[15] <= <GND>
 LEDR[16] <= <GND>
 LEDR[17] <= <GND>
 

@@ -23,7 +23,7 @@ begin
 	sync_proc : process(clk)
 	begin
 		if (rising_edge(clk)) then
-			if(enable = '1') then
+			if(enable = '1' and ProgStart = '1') then
 				if (reset = '1') then
 					s_currentState <= INIT;
 				else

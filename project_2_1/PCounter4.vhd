@@ -7,13 +7,13 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity PCounter4 is
-   generic(	max : integer := 9;
-				min : integer := 0);
+   generic(	max : integer := 9; -- Valor default
+				min : integer := 0); -- Valor default
    port(clk    : in std_logic;
 	     enable : in std_logic;
 		  mainEn	: in std_logic;
 	     reset  : in std_logic;
-		  mode   : in std_logic;
+		  mode   : in std_logic; -- Modo de contagem (crescente ou decrescente)
 		  TC     : out std_logic;
 		  Q      : out std_logic_vector(3 downto 0));
 
@@ -30,7 +30,7 @@ begin
 				TC <= '0';
 			else
 			   if(enable = '1' and mainEn = '1') then
-				   if(mode = '0') then					   
+				   if(mode = '0') then -- Modo de contagem crescente					   
 						if(to_integer(s_count) = max) then -- or to_integer(s_count) >= 10
 							s_count <= to_unsigned(min, 4);
 							TC <= '1'; --só depois de chegar ao dígito maximo é que o próximo counter muda
@@ -38,13 +38,13 @@ begin
 							s_count <= s_count + 1;
 							TC <= '0';
 						end if;
-					else
+					else -- Modo de contagem decrescente
 					   if(to_integer(s_count) = min) then
 							if(min = 0) then
 								s_count <= to_unsigned(max, 4);
 								TC <= '1'; --só depois de chegar ao dígito minimo é que o próximo counter muda
 							else
-								s_count <= to_unsigned(0, 4);
+								s_count <= to_unsigned(0, 4);  -- se o valor minimo do contador for 1 ou superior, ele não pode voltar outra vez a esse valor, logo tem de ir ao 0
 								TC <= '0';
 							end if;
 						else

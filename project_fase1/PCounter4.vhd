@@ -7,8 +7,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity PCounter4 is
-   generic(	max : integer := 9;
-				min : integer := 0);
+   generic(	max : integer := 9; -- Valor default
+				min : integer := 0); -- Valor default
    port(clk    : in std_logic;
 	     enable : in std_logic;
 		  mainEn	: in std_logic;
@@ -34,14 +34,14 @@ begin
 							s_count <= to_unsigned(max, 4);
 							TC <= '1'; --só depois de chegar ao dígito minimo é que o próximo counter muda
 						else
-							s_count <= to_unsigned(0, 4);
+							s_count <= to_unsigned(0, 4); -- se o valor minimo do contador for 1 ou superior, ele não pode voltar outra vez a esse valor, logo tem de ir ao 0
 							TC <= '0';
 						end if;
 					else
 						s_count <= s_count - 1;
 						TC <= '0';    
 					end if;
-				else
+				else -- Se o contador estiver desligado não ordenar o contador seguinte a funcionar
 					TC <= '0';
 				end if;
 			end if;
