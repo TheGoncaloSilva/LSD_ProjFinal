@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/gonca/OneDrive/Documents/Repositorios/LSD_ProjFinal/project_2_1/simulation/qsim
+vPCounter4
+Z1 !s110 1624357824
+!i10b 1
+!s100 >XFA>=4UEkP=nVMVeP[`G3
+I>`=VQeT5R<eP0;[J6R8@?1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1624357821
+8cronometro.vo
+Fcronometro.vo
+L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1624357824.000000
+!s107 cronometro.vo|
+!s90 -work|work|cronometro.vo|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+n@p@counter4
+vPCounter4_vlg_vec_tst
+R1
+!i10b 1
+!s100 CH_NQXA_UT?oKzB6NP6L?0
+I1FaA9EKUchYH8l=f14>HL0
+R2
+R0
+w1624357820
+8PCounter4.vwf.vt
+FPCounter4.vwf.vt
+L0 29
+R3
+r1
+!s85 0
+31
+R4
+!s107 PCounter4.vwf.vt|
+!s90 -work|work|PCounter4.vwf.vt|
+!i113 1
+R5
+R6
+n@p@counter4_vlg_vec_tst
